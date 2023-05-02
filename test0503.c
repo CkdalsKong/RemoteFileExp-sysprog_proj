@@ -8,6 +8,8 @@
 #include <time.h>
 #include <utime.h>
 #include <sys/time.h>
+#include <sys/types.h>
+#include <pwd.h>
 
 #define ROW 30
 #define COL 80
@@ -41,6 +43,9 @@ void highlightOff(char *, int);
 void freeFilenames();
 
 int main(int argc, char *argv[]) {
+	struct passwd *pw = getpwuid(getuid());
+	char *homedir = pw->pw_dir;
+	
 	initscr();
 	resize_term(ROW, COL);
 	cbreak();
@@ -49,7 +54,7 @@ int main(int argc, char *argv[]) {
 	init_pair(1, COLOR_BLUE, COLOR_WHITE);
 	
 	printScr();
-	printDir("/");
+	printDir(homedir);
 	
 	while(1) {
 		moveCur();
@@ -100,15 +105,12 @@ void printDir(char *dirname) {
 	
 	if (chdir(dirname) != 0) {
 		perror(dirname);
-		exit(1);
+		return;
 	}
 	
 	if (getcwd(cur_dir, sizeof(cur_dir)) != NULL) {
 		attron(A_BOLD);
-		if (!strcmp(cur_dir, "/"))
-			mvprintw(1, 27, "Root");
-		else 
-			mvprintw(1, 27, cur_dir);
+		mvprintw(1, 27, dirname);
 		attroff(A_BOLD);
 	}
 	else {
@@ -116,7 +118,7 @@ void printDir(char *dirname) {
 		return;
 	}
 	
-	dir_ptr = opendir(dirname);
+	dir_ptr = opendir(cur_dir);
 	if (dir_ptr == NULL) {
 		perror("opendir error");
 		return;
@@ -135,6 +137,7 @@ void printDir(char *dirname) {
 			startRow++;
 		}
 	}
+	refresh();
 }
 
 void doStat(char *filename) {
@@ -218,6 +221,10 @@ void moveCur() {
 		}
 		else if (ch == '\n') {
 			printDir(filenames[curRow - 5]);
+			curRow = 5;
+			if (fileCount > 20)
+				rowMax = ROW - 5;
+			else rowMax = 4 + fileCount;
 		}
 		
 	}
@@ -256,4 +263,6 @@ void freeFilenames() {
 		free(filenames[i]);
 	}
 	fileCount = 0;
+	clear();
+	printScr();
 }
