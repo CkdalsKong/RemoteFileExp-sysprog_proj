@@ -13,14 +13,15 @@
 
 #define ROW 30
 #define COL 80
-#define F_NUM	100
-#define F_SIZE 20
+#define BLANK "                    "
 #define MALLOC(p, s) \
 if (!(p = malloc(s))) {\
 	perror("malloc() error");\
 	exit(1);\
 }
 
+char *dirstack[100];
+int stackcount = 0;
 char *filenames[100];
 int startRow = 5;
 int nameCol = 12;
@@ -32,7 +33,7 @@ int fileCount = 0;
 
 void printDir(char *);
 void printScr();
-void doStat(char *);
+void doStat(char *, char*);
 void printFileinfo(char*, struct stat*);
 void printSize(struct stat*);
 void printTime(struct stat*);
@@ -41,13 +42,18 @@ void moveCur();
 void highlightOn(char *, int);
 void highlightOff(char *, int);
 void freeFilenames();
+int checkHome(char*);
+ino_t get_inode(char*);
+void printPredir(ino_t);
+void stackpush(char *);
+
 
 int main(int argc, char *argv[]) {
 	struct passwd *pw = getpwuid(getuid());
 	char *homedir = pw->pw_dir;
 	
 	initscr();
-	resize_term(ROW, COL);
+	resize_term(ROW + 1, COL);
 	cbreak();
 	noecho();
 	start_color();
@@ -58,6 +64,8 @@ int main(int argc, char *argv[]) {
 	
 	while(1) {
 		moveCur();
+		
+		
 	}
 	endwin();
 	
@@ -99,24 +107,39 @@ void printDir(char *dirname) {
 	struct dirent *dirinfo;
 	struct stat fileinfo;
 	char cur_dir[1024];
+	char path[4096];
 	startRow = 5;
 	
 	freeFilenames();
 	
 	if (chdir(dirname) != 0) {
+		mvprintw(LINES - 1, nameCol + 1, "chdir() error: ");
 		perror(dirname);
 		return;
 	}
 	
 	if (getcwd(cur_dir, sizeof(cur_dir)) != NULL) {
 		attron(A_BOLD);
-		mvprintw(1, 27, dirname);
+		if (!strcmp(dirname, "..")) {
+			if (stackcount > 1) {
+				free(dirstack[stackcount]);
+				mvprintw(1, 27, BLANK);
+				mvprintw(1, 27, dirstack[--stackcount]);
+			}
+		}
+		else {
+			stackpush(dirname);
+			mvprintw(1, 27, BLANK);
+			mvprintw(1, 27, dirname);
+		}
 		attroff(A_BOLD);
 	}
 	else {
 		perror("getcwd() error");
 		return;
 	}
+	
+	mvprintw(ROW - 4, nameCol + 1, cur_dir);
 	
 	dir_ptr = opendir(cur_dir);
 	if (dir_ptr == NULL) {
@@ -132,19 +155,23 @@ void printDir(char *dirname) {
 			MALLOC(filenames[fileCount], sizeof(dirinfo->d_name));
 			strcpy(filenames[fileCount++], dirinfo->d_name);
 			if (fileCount > 20) continue;
-			doStat(dirinfo->d_name);
+			snprintf(path, sizeof(path), "%s/%s", cur_dir, dirinfo->d_name);
+			doStat(path, dirinfo->d_name);
 			
 			startRow++;
 		}
 	}
+	if (fileCount == 0)
 	refresh();
 }
 
-void doStat(char *filename) {
+void doStat(char *path, char *filename) {
 	struct stat info;
 	
-	if (stat(filename, &info) == -1)
-		perror(filename);
+	if (stat(path, &info) == -1) {
+		perror(path);
+		return;
+	}
 	else {
 		if (S_ISDIR(info.st_mode) || S_ISREG(info.st_mode))
 			printFileinfo(filename, &info);
@@ -194,7 +221,7 @@ void printType(struct stat* info) {
 }
 
 void moveCur() {
-	char ch;
+	int ch;
 	int finishRow, curRow, curCol, rowMax;
 	
 	keypad(stdscr, TRUE);
@@ -210,23 +237,46 @@ void moveCur() {
 		highlightOn(filenames[curRow - 5], curRow);
 		
 		ch = getch();
-		
-		if (ch == 'w' && curRow > 5) {
-			highlightOff(filenames[curRow - 5], curRow);
-			curRow--;
+		switch (ch) {
+			case KEY_UP:
+				if (curRow > 5) {
+					highlightOff(filenames[curRow - 5], curRow);
+					curRow--;
+				} break;
+			
+			case KEY_DOWN:
+				if (curRow < rowMax) {
+					highlightOff(filenames[curRow - 5], curRow);
+					curRow++;
+				} break;
+			
+			case KEY_LEFT:
+			case KEY_RIGHT:
+			case KEY_ENTER:
+			case '\n'     :
+				printDir(filenames[curRow - 5]);
+				curRow = 5;
+				
+				if (fileCount > 20)
+					rowMax = ROW - 5;
+				else rowMax = 4 + fileCount;
+				break;
+			
+			case KEY_BACKSPACE:
+			case 127		  :
+				if (checkHome("."))
+					break;
+				else
+					printDir("..");
+				curRow = 5;
+				if (fileCount > 20)
+					rowMax = ROW - 5;
+				else rowMax = 4 + fileCount;
+				break; // home일 경우 메시지 출력 구현하기
+			
+			default:
+				continue;
 		}
-		else if (ch == 's' && curRow < rowMax) {
-			highlightOff(filenames[curRow - 5], curRow);
-			curRow++;
-		}
-		else if (ch == '\n') {
-			printDir(filenames[curRow - 5]);
-			curRow = 5;
-			if (fileCount > 20)
-				rowMax = ROW - 5;
-			else rowMax = 4 + fileCount;
-		}
-		
 	}
 }
 
@@ -265,4 +315,30 @@ void freeFilenames() {
 	fileCount = 0;
 	clear();
 	printScr();
+}
+
+int checkHome(char* dirname) {
+	struct passwd *pw = getpwuid(getuid());
+	char *homedir = pw->pw_dir;
+	ino_t curinode = get_inode(dirname);
+	ino_t homeinode = get_inode(homedir);
+	
+	if (curinode == homeinode)
+		return 1;
+	else return 0;
+}
+
+ino_t get_inode(char* fname) {
+	struct stat info;
+	if (stat(fname, &info) == -1) {
+		fprintf(stderr, "Cannot stat ");
+		perror(fname);
+		exit(1);
+	}
+	return info.st_ino;
+}
+
+void stackpush(char *dirname) {
+	MALLOC(dirstack[++stackcount], sizeof(*dirname));
+	strcpy(dirstack[stackcount], dirname);
 }
