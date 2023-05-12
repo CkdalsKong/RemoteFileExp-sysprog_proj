@@ -35,6 +35,7 @@ int typeCol = 69;
 int ctrlCol = 1;
 char *curdir;
 
+/* 현재 directory 안에 존재하는 항목 수 */
 int fileCount = 0;
 
 WINDOW *alertwin;
@@ -178,6 +179,7 @@ void printDir(char *dirname) {
 		return;
 	}
 	
+	// 맨 밑에 현재 경로 표시
 	mvprintw(ROW - 4, nameCol + 1, cur_dir);
 	
 	dir_ptr = opendir(cur_dir);
@@ -186,21 +188,24 @@ void printDir(char *dirname) {
 		return;
 	}
 	else {
-		while((dirinfo = readdir(dir_ptr)) != NULL && startRow < ROW - 5) {
+		while((dirinfo = readdir(dir_ptr)) != NULL) {
 			if (dirinfo->d_name[0] == '.') continue;
-			if (strcmp(dirinfo->d_name, ".") == 0 ||
-				strcmp(dirinfo->d_name, "..") == 0)
+			if (strcmp(dirinfo->d_name, ".") == 0  ||
+				strcmp(dirinfo->d_name, "..") == 0 ||
+				strcmp(dirinfo->d_name, "") == 0)
 				continue;
 			MALLOC(filenames[fileCount], sizeof(dirinfo->d_name));
 			strcpy(filenames[fileCount++], dirinfo->d_name);
 			if (fileCount > 20) continue;
 			snprintf(path, sizeof(path), "%s/%s", cur_dir, dirinfo->d_name);
 			doStat(path, dirinfo->d_name);
-			
 			startRow++;
 		}
 	}
-	if (fileCount == 0)
+	if (fileCount == 0) {
+		mvprintw(startRow + 8, nameCol + 1, "directory is empty");
+	}
+	
 	refresh();
 }
 
@@ -208,7 +213,7 @@ void doStat(char *path, char *filename) {
 	struct stat info;
 	
 	if (stat(path, &info) == -1) {
-		mvprintw(LINES - 1, nameCol + 1, "stat(%s) error: %s", path, strerror(errno));
+		mvprintw(LINES - 1, nameCol + 1, "stat( %s ) error: %s", path, strerror(errno));
 		return;
 	}
 	else {
@@ -226,9 +231,9 @@ void printFileinfo(char*filename, struct stat* info) {
 	printSize(info);
 	printType(info);
 	if (S_ISDIR(info->st_mode))
-		mvprintw(startRow, nameCol + 1, "[%.30s]", filename);
+		mvprintw(startRow, nameCol + 1, "[%.24s]", filename);
 	else
-		mvprintw(startRow, nameCol, "%.30s", filename);
+		mvprintw(startRow, nameCol, "%.24s", filename);
 	
 }
 
@@ -269,12 +274,13 @@ void moveCur() {
 	curRow = 5;
 	curCol = nameCol + 1;
 	if (fileCount > 20)
-		rowMax = ROW - 5;
+		rowMax = ROW - 6;
 	else rowMax = 4 + fileCount;
 	
 	while(1) {
 		move(curRow, curCol);
-		highlight(filenames[curRow - 5], curRow, 1);
+		if (fileCount != 0)
+			highlight(filenames[curRow - 5], curRow, 1);
 		
 		ch = getch();
 		switch (ch) {
@@ -296,7 +302,7 @@ void moveCur() {
 			case KEY_ENTER:
 			case '\n'     :
 				curdir = filenames[curRow - 5];
-				printDir(filenames[curRow - 5]);
+				printDir(curdir);
 				curRow = 5;
 				
 				if (fileCount > 20)
@@ -344,9 +350,9 @@ void highlight(char *filename, int row, int flag) {
 	if (flag == 1)
 		attron(A_BOLD | COLOR_PAIR(1));
 	if (S_ISDIR(info.st_mode))
-		mvprintw(row, nameCol + 1, "[%.30s]", filename);
+		mvprintw(row, nameCol + 1, "[%.24s]", filename);
 	else
-		mvprintw(row, nameCol, "%.30s",filename);
+		mvprintw(row, nameCol, "%.24s",filename);
 	attroff(A_BOLD | COLOR_PAIR(1));
 }
 
@@ -475,7 +481,7 @@ void showctrl(){
 	mvprintw(8,ctrlCol, "Go into Dir");
 	mvprintw(9,ctrlCol, "Backspace:");
 	mvprintw(10,ctrlCol, "Go Prev Dir");
-	mvprintw(11,ctrlCol, "c:copy");
+	mvprintw(11,ctrlCol, "c:copy"); 
 	mvprintw(12,ctrlCol, "a:alert");
 	mvprintw(13,ctrlCol, "h:help");
 	mvprintw(14,ctrlCol, "Ctrl+c:");
