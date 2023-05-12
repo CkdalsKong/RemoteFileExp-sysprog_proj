@@ -10,10 +10,12 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <pwd.h>
+#include <fcntl.h>
 
 #define ROW 30
 #define COL 80
 #define BLANK "                    "
+#define COPYMODE 0644
 #define MALLOC(p, s) \
 if (!(p = malloc(s))) {\
 	perror("malloc() error");\
@@ -24,12 +26,17 @@ char *dirstack[100];
 int stackcount = 0;
 char *filenames[100];
 int startRow = 5;
-int nameCol = 12;
+int nameCol = 14;
 int timeCol = 42;
 int sizeCol = 58;
 int typeCol = 69;
+int ctrlCol = 1;
+char *curdir;
 
 int fileCount = 0;
+
+WINDOW *alertwin;
+WINDOW *mypad;
 
 void printDir(char *);
 void printScr();
@@ -46,7 +53,12 @@ int checkHome(char*);
 ino_t get_inode(char*);
 void printPredir(ino_t);
 void stackpush(char *);
-
+void copy1(char*, char*);
+void alert();
+void loadscr();
+void showctrl();
+void loadMan();
+void showMan();
 
 int main(int argc, char *argv[]) {
 	struct passwd *pw = getpwuid(getuid());
@@ -59,14 +71,17 @@ int main(int argc, char *argv[]) {
 	start_color();
 	init_pair(1, COLOR_BLUE, COLOR_WHITE);
 	
+	loadMan();
+	curdir = homedir;
 	printScr();
 	printDir(homedir);
-	
+	showctrl();
 	while(1) {
 		moveCur();
 		
 		
 	}
+	delwin(mypad);
 	endwin();
 	
 	return 0;
@@ -223,7 +238,8 @@ void printType(struct stat* info) {
 void moveCur() {
 	int ch;
 	int finishRow, curRow, curCol, rowMax;
-	
+	char des[1024];
+
 	keypad(stdscr, TRUE);
 	finishRow = startRow;
 	curRow = 5;
@@ -254,6 +270,7 @@ void moveCur() {
 			case KEY_RIGHT:
 			case KEY_ENTER:
 			case '\n'     :
+				curdir = filenames[curRow - 5];
 				printDir(filenames[curRow - 5]);
 				curRow = 5;
 				
@@ -273,7 +290,20 @@ void moveCur() {
 					rowMax = ROW - 5;
 				else rowMax = 4 + fileCount;
 				break; // home일 경우 메시지 출력 구현하기
-			
+			case 'c':
+				strcpy(des, "copy_of_");
+				strcat(des, filenames[curRow-5]);
+				copy1(filenames[curRow-5], des);
+				loadscr();
+				break;
+			case 'a':					//테스트용
+				alert("This is not a drill.");
+				loadscr();
+				break;
+			case 'h':
+				showMan();
+				loadscr();
+				break;
 			default:
 				continue;
 		}
@@ -341,4 +371,163 @@ ino_t get_inode(char* fname) {
 void stackpush(char *dirname) {
 	MALLOC(dirstack[++stackcount], sizeof(*dirname));
 	strcpy(dirstack[stackcount], dirname);
+}
+
+void copy1(char *src, char *des){
+
+	int newpid;
+	int in_fd, out_fd, n_chars;
+	char buf[4096];
+
+	if ((newpid = fork()) == -1){
+		perror("fork");
+	}else if ( newpid == 0){
+
+		if ((in_fd = open(src, O_RDONLY)) == -1){
+			fprintf(stderr, "Cannot open %s\n", src);
+			exit(1);
+		}
+	
+		if ((out_fd = creat(des, COPYMODE)) == -1){
+			fprintf(stderr, "Cannot creat %s\n", des);
+			exit(1);
+		}
+
+		while ((n_chars = read(in_fd, buf, 4096)) > 0){
+			if (write(out_fd, buf, n_chars) != n_chars){
+				fprintf(stderr, "write error to %s\n", des);
+				exit(1);
+			}
+		}
+
+		if (n_chars == -1){
+			fprintf(stderr, "read error from %s", src);
+			exit(1);
+		}
+
+		if (close(in_fd) == -1 || close(out_fd) == -1){
+			fprintf(stderr, "error closing file");
+			exit(1);
+		}
+
+		exit(17);
+	}
+	else{
+		wait(NULL);
+	}
+}
+
+void alert(char *msg){
+
+	char uinput[1024];
+	int r, c;
+	char i;
+
+	alertwin = newwin(10,40,10,20);
+	for(c=0;c<40;c++){//int box(alertwin,'#','#');로 대체가능
+		mvwprintw(alertwin, 0, c,"#");
+		mvwprintw(alertwin, 9, c,"#");
+	}
+	for(r=0;r<10;r++){
+		mvwprintw(alertwin, r, 0, "#");
+		mvwprintw(alertwin, r, 39, "#");
+	}
+	
+
+	mvwprintw(alertwin, 3, 2, "%s", msg);
+	mvwprintw(alertwin, 7, 2, "y : ok");
+
+	wrefresh(alertwin);
+
+	if((i = getch()) == 'y'){
+		delwin(alertwin);
+	}
+}
+
+void loadscr(){
+	printScr();
+	printDir(curdir);
+	showctrl();
+	refresh();
+}
+
+void showctrl(){
+	mvprintw(1,ctrlCol, "How to Use");
+	mvprintw(2,ctrlCol, "Arrows:");
+	mvprintw(3,ctrlCol, "Up&Down:");
+	mvprintw(4,ctrlCol, "Move Cursor");
+	mvprintw(5,ctrlCol, "Left&Right");
+	mvprintw(6,ctrlCol, "Move Page");
+	mvprintw(7,ctrlCol, "Enter:");
+	mvprintw(8,ctrlCol, "Go into Dir");
+	mvprintw(9,ctrlCol, "Backspace:");
+	mvprintw(10,ctrlCol, "Go Prev Dir");
+	mvprintw(11,ctrlCol, "c:copy");
+	mvprintw(12,ctrlCol, "a:alert");
+	mvprintw(13,ctrlCol, "h:help");
+	mvprintw(14,ctrlCol, "Ctrl+c:");
+	mvprintw(15,ctrlCol, " Quit");
+	mvprintw(16,ctrlCol, "Ctrl+z:");
+	mvprintw(17,ctrlCol, " Quit");
+}
+
+void loadMan(){
+
+	FILE *fp = NULL;
+	int i=0;
+	char buf[80];
+	int maxpage = 1;
+
+	fp = fopen("manual.txt", "r");
+	if(fp == NULL){
+		fprintf(stderr, "manual,txt doesn't exist. Aborting...\n");
+		exit(1);
+	}
+
+	mypad = newpad(maxpage*30,80);
+
+		while(fgets(buf,80,fp)){
+			mvwprintw(mypad,i++,0,buf);
+			if(i>=maxpage*30){
+				fprintf(stderr,"manual.txt is longer than pad\n");
+				break;
+		}
+	}
+	
+	fclose(fp);
+}
+
+void showMan(){
+
+	int page = 1;
+	int maxpage=1;
+	int stop = 0;
+	
+	prefresh(mypad, 0,0,0,0,29,79);
+	while(!stop){
+		touchwin(mypad);
+		switch(getch()){
+			case KEY_LEFT:
+				if(page>1){
+					clear();
+					page--;
+					prefresh(mypad, page*30-30,0,0,0,29,79);
+				}
+				break;
+			case KEY_RIGHT:
+				if(page<maxpage){
+					clear();
+					page++;
+					prefresh(mypad, page*30-30,0,0,0,29,79);
+				}
+				break;
+			case 'q':
+				erase();
+				stop = 1;
+				break;
+			default:
+				continue;
+		}
+	}
+
 }
