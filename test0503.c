@@ -11,6 +11,8 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <fcntl.h>
+#include <errno.h>
+
 
 #define ROW 30
 #define COL 80
@@ -38,21 +40,44 @@ int fileCount = 0;
 WINDOW *alertwin;
 WINDOW *mypad;
 
-void printDir(char *);
+/* parameter로 전달받은 경로에 존재하는 directory, file들을 출력 */
+void printDir(char* dirname);
+
+/* 프로그램 기본 화면 출력 */
 void printScr();
-void doStat(char *, char*);
-void printFileinfo(char*, struct stat*);
-void printSize(struct stat*);
-void printTime(struct stat*);
-void printType(struct stat*);
+
+/* stat에 path전달해주고, filename은 프로그램 화면에 출력위해 전달 */
+void doStat(char* path, char* filename);
+
+/* stat정보들을 통해 file 이름, 수정시간, 크기, 종류들을 화면상에 출력 */
+void printFileinfo(char* filename, struct stat* info);
+
+/* stat.st_size를 통해 byte, KB, MB, GB 형태로 파일크기 출력 */
+void printSize(struct stat* info);
+
+/*  */
+void printTime(struct stat* info);
+
+/*  */
+void printType(struct stat* info);
+
+/*  */
 void moveCur();
-void highlightOn(char *, int);
-void highlightOff(char *, int);
+
+/* 현재 row에 존재하는 filename을 highlight */
+void highlight(char* filename, int row, int flag);
+
+/* 디렉토리가 변경되었을 때 이전 디렉토리의 내용들을 초기화 */
 void freeFilenames();
-int checkHome(char*);
-ino_t get_inode(char*);
-void printPredir(ino_t);
-void stackpush(char *);
+
+/* 현재 디렉토리가 home인지 확인 */
+int checkHome(char* dirname);
+
+/* stat을 이용해 fname의 inode number return */
+ino_t get_inode(char* fname);
+
+/* 현재 디렉토리의 이름 dirstack에 전달 */
+void stackpush(char* dirname);
 void copy1(char*, char*);
 void alert();
 void loadscr();
@@ -121,15 +146,14 @@ void printDir(char *dirname) {
 	DIR *dir_ptr;
 	struct dirent *dirinfo;
 	struct stat fileinfo;
-	char cur_dir[1024];
-	char path[4096];
+	char cur_dir[4096];
+	char path[8192];
 	startRow = 5;
 	
 	freeFilenames();
 	
 	if (chdir(dirname) != 0) {
-		mvprintw(LINES - 1, nameCol + 1, "chdir() error: ");
-		perror(dirname);
+		mvprintw(LINES - 1, nameCol + 1, "chdir(%s) error: %s",dirname, strerror(errno));
 		return;
 	}
 	
@@ -150,7 +174,7 @@ void printDir(char *dirname) {
 		attroff(A_BOLD);
 	}
 	else {
-		perror("getcwd() error");
+		mvprintw(LINES - 1, nameCol + 1, "getcwd() error: %s", strerror(errno));
 		return;
 	}
 	
@@ -158,7 +182,7 @@ void printDir(char *dirname) {
 	
 	dir_ptr = opendir(cur_dir);
 	if (dir_ptr == NULL) {
-		perror("opendir error");
+		mvprintw(LINES - 1, nameCol + 1, "opendir() error: %s", strerror(errno));
 		return;
 	}
 	else {
@@ -184,7 +208,7 @@ void doStat(char *path, char *filename) {
 	struct stat info;
 	
 	if (stat(path, &info) == -1) {
-		perror(path);
+		mvprintw(LINES - 1, nameCol + 1, "stat(%s) error: %s", path, strerror(errno));
 		return;
 	}
 	else {
@@ -202,9 +226,9 @@ void printFileinfo(char*filename, struct stat* info) {
 	printSize(info);
 	printType(info);
 	if (S_ISDIR(info->st_mode))
-		mvprintw(startRow, nameCol + 1, "[%s]", filename);
+		mvprintw(startRow, nameCol + 1, "[%.30s]", filename);
 	else
-		mvprintw(startRow, nameCol, filename);
+		mvprintw(startRow, nameCol, "%.30s", filename);
 	
 }
 
@@ -250,24 +274,25 @@ void moveCur() {
 	
 	while(1) {
 		move(curRow, curCol);
-		highlightOn(filenames[curRow - 5], curRow);
+		highlight(filenames[curRow - 5], curRow, 1);
 		
 		ch = getch();
 		switch (ch) {
 			case KEY_UP:
 				if (curRow > 5) {
-					highlightOff(filenames[curRow - 5], curRow);
+					highlight(filenames[curRow - 5], curRow, 0);
 					curRow--;
 				} break;
 			
 			case KEY_DOWN:
 				if (curRow < rowMax) {
-					highlightOff(filenames[curRow - 5], curRow);
+					highlight(filenames[curRow - 5], curRow, 0);
 					curRow++;
 				} break;
+
 			
-			case KEY_LEFT:
-			case KEY_RIGHT:
+			//case KEY_LEFT:
+			//case KEY_RIGHT:
 			case KEY_ENTER:
 			case '\n'     :
 				curdir = filenames[curRow - 5];
@@ -310,33 +335,21 @@ void moveCur() {
 	}
 }
 
-void highlightOn(char *filename, int row) {
+void highlight(char *filename, int row, int flag) {
 	struct stat info;
 	
 	if (stat(filename, &info) == -1)
-		perror(filename);
-	else {
+		mvprintw(LINES - 1, nameCol + 1, "stat(%s) error: %s", filename, strerror(errno));
+	
+	if (flag == 1)
 		attron(A_BOLD | COLOR_PAIR(1));
-		if (S_ISDIR(info.st_mode))
-			mvprintw(row, nameCol + 1, "[%s]", filename);
-		else
-			mvprintw(row, nameCol, filename);
-		attroff(A_BOLD | COLOR_PAIR(1));
-	}
+	if (S_ISDIR(info.st_mode))
+		mvprintw(row, nameCol + 1, "[%.30s]", filename);
+	else
+		mvprintw(row, nameCol, "%.30s",filename);
+	attroff(A_BOLD | COLOR_PAIR(1));
 }
 
-void highlightOff(char *filename, int row) {
-	struct stat info;
-	
-	if (stat(filename, &info) == -1)
-		perror(filename);
-	else {
-		if (S_ISDIR(info.st_mode))
-			mvprintw(row, nameCol + 1, "[%s]", filename);
-		else
-			mvprintw(row, nameCol, filename);
-	}
-}
 
 void freeFilenames() {
 	for(int i = 0; i < fileCount; i++) {
