@@ -33,7 +33,7 @@ int timeCol = 42;
 int sizeCol = 58;
 int typeCol = 69;
 int ctrlCol = 1;
-char *curdir;
+char *curdir;			//현재 디렉토리 위치
 
 /* 현재 directory 안에 존재하는 항목 수 */
 int fileCount = 0;
@@ -79,12 +79,14 @@ ino_t get_inode(char* fname);
 
 /* 현재 디렉토리의 이름 dirstack에 전달 */
 void stackpush(char* dirname);
-void copy1(char*, char*);
-void alert();
-void loadscr();
-void showctrl();
-void loadMan();
-void showMan();
+void copy1(char*, char*);	//복제
+void alert();			//입력없는 알림창
+void alerti(char*, char*);	//입력있는 알림창
+void loadscr();			//탐색기 폴더 새로고침
+void showctrl();		//좌측 사이드바 조작법 표시
+void loadMan();			//매뉴얼 페이지 만들어놓기
+void showMan();			//매뉴얼 페이지 표시
+void rname(char*);		//이름 변경
 
 int main(int argc, char *argv[]) {
 	struct passwd *pw = getpwuid(getuid());
@@ -199,6 +201,7 @@ void printDir(char *dirname) {
 			if (fileCount > 20) continue;
 			snprintf(path, sizeof(path), "%s/%s", cur_dir, dirinfo->d_name);
 			doStat(path, dirinfo->d_name);
+			
 			startRow++;
 		}
 	}
@@ -295,7 +298,7 @@ void moveCur() {
 					highlight(filenames[curRow - 5], curRow, 0);
 					curRow++;
 				} break;
-
+			
 			
 			//case KEY_LEFT:
 			//case KEY_RIGHT:
@@ -322,8 +325,10 @@ void moveCur() {
 				else rowMax = 4 + fileCount;
 				break; // home일 경우 메시지 출력 구현하기
 			case 'c':
-				strcpy(des, "copy_of_");
-				strcat(des, filenames[curRow-5]);
+				//strcpy(des, "copy_of_");
+				//strcat(des, filenames[curRow-5]);
+
+				alerti("Type name of new copy and Enter", des);
 				copy1(filenames[curRow-5], des);
 				loadscr();
 				break;
@@ -333,6 +338,10 @@ void moveCur() {
 				break;
 			case 'h':
 				showMan();
+				loadscr();
+				break;
+			case 'r':
+				rname(filenames[curRow-5]);
 				loadscr();
 				break;
 			default:
@@ -349,13 +358,25 @@ void highlight(char *filename, int row, int flag) {
 	
 	if (flag == 1)
 		attron(A_BOLD | COLOR_PAIR(1));
-	if (S_ISDIR(info.st_mode))
+		if (S_ISDIR(info.st_mode))
 		mvprintw(row, nameCol + 1, "[%.24s]", filename);
-	else
+		else
 		mvprintw(row, nameCol, "%.24s",filename);
-	attroff(A_BOLD | COLOR_PAIR(1));
-}
+		attroff(A_BOLD | COLOR_PAIR(1));
+	}
 
+void highlightOff(char *filename, int row) {
+	struct stat info;
+	
+	if (stat(filename, &info) == -1)
+		perror(filename);
+	else {
+		if (S_ISDIR(info.st_mode))
+			mvprintw(row, nameCol + 1, "[%s]", filename);
+		else
+			mvprintw(row, nameCol, filename);
+	}
+}
 
 void freeFilenames() {
 	for(int i = 0; i < fileCount; i++) {
@@ -397,11 +418,20 @@ void copy1(char *src, char *des){
 	int newpid;
 	int in_fd, out_fd, n_chars;
 	char buf[4096];
+	char msg[200];
 
 	if ((newpid = fork()) == -1){
 		perror("fork");
 	}else if ( newpid == 0){
-
+		/* #####des 이름이 이미 존재할 때 예외처리
+		if(out_fd = open(des, O_RDONLY)){
+			strcpy(msg,des);
+			strcat(msg," already exist! Aborting copy...");
+			alert(msg);
+			close(out_fd);
+			exit(17);
+		}
+		*/
 		if ((in_fd = open(src, O_RDONLY)) == -1){
 			fprintf(stderr, "Cannot open %s\n", src);
 			exit(1);
@@ -438,12 +468,11 @@ void copy1(char *src, char *des){
 
 void alert(char *msg){
 
-	char uinput[1024];
 	int r, c;
 	char i;
 
 	alertwin = newwin(10,40,10,20);
-	for(c=0;c<40;c++){//int box(alertwin,'#','#');로 대체가능
+	for(c=0;c<40;c++){			//int box(alertwin,'#','#');로 대체가능
 		mvwprintw(alertwin, 0, c,"#");
 		mvwprintw(alertwin, 9, c,"#");
 	}
@@ -455,7 +484,7 @@ void alert(char *msg){
 
 	mvwprintw(alertwin, 3, 2, "%s", msg);
 	mvwprintw(alertwin, 7, 2, "y : ok");
-
+	touchwin(alertwin);
 	wrefresh(alertwin);
 
 	if((i = getch()) == 'y'){
@@ -463,6 +492,21 @@ void alert(char *msg){
 	}
 }
 
+void alerti(char *msg, char* useri){
+
+	alertwin = newwin(10,40,10,20);
+	box(alertwin,'#','#');
+
+	mvwprintw(alertwin, 3, 2, "%-36s", msg);
+	wmove(alertwin, 7, 2);
+	echo();
+	nocbreak();
+	touchwin(alertwin);
+	wrefresh(alertwin);
+	wgetnstr(alertwin, useri, 100);
+	noecho();
+	cbreak();
+}
 void loadscr(){
 	printScr();
 	printDir(curdir);
@@ -471,23 +515,34 @@ void loadscr(){
 }
 
 void showctrl(){
-	mvprintw(1,ctrlCol, "How to Use");
-	mvprintw(2,ctrlCol, "Arrows:");
-	mvprintw(3,ctrlCol, "Up&Down:");
-	mvprintw(4,ctrlCol, "Move Cursor");
-	mvprintw(5,ctrlCol, "Left&Right");
-	mvprintw(6,ctrlCol, "Move Page");
-	mvprintw(7,ctrlCol, "Enter:");
-	mvprintw(8,ctrlCol, "Go into Dir");
-	mvprintw(9,ctrlCol, "Backspace:");
-	mvprintw(10,ctrlCol, "Go Prev Dir");
-	mvprintw(11,ctrlCol, "c:copy"); 
-	mvprintw(12,ctrlCol, "a:alert");
-	mvprintw(13,ctrlCol, "h:help");
-	mvprintw(14,ctrlCol, "Ctrl+c:");
-	mvprintw(15,ctrlCol, " Quit");
-	mvprintw(16,ctrlCol, "Ctrl+z:");
-	mvprintw(17,ctrlCol, " Quit");
+
+	int i=1;
+	
+	mvprintw(i++,ctrlCol, "How to Use");
+	mvprintw(i++,ctrlCol, "==========");
+	mvprintw(i++,ctrlCol, "Arrows:");
+	mvprintw(i++,ctrlCol, "");
+	mvprintw(i++,ctrlCol, " Up&Down:");
+	mvprintw(i++,ctrlCol, "  Move Cursor");
+	mvprintw(i++,ctrlCol, "");
+	mvprintw(i++,ctrlCol, " Left&Right");
+	mvprintw(i++,ctrlCol, "  Move Page");
+	mvprintw(i++,ctrlCol, "");
+	mvprintw(i++,ctrlCol, "Enter:");
+	mvprintw(i++,ctrlCol, " Go into Dir");
+	mvprintw(i++,ctrlCol, "");
+	mvprintw(i++,ctrlCol, "Backspace:");
+	mvprintw(i++,ctrlCol, " To Parent dir");
+	mvprintw(i++,ctrlCol, "");
+	mvprintw(i++,ctrlCol, "c:copy");
+	mvprintw(i++,ctrlCol, "a:alert");
+	mvprintw(i++,ctrlCol, "r:rename");
+	mvprintw(i++,ctrlCol, "h:help");
+	mvprintw(i++,ctrlCol, "f:Favorite");
+	mvprintw(i++,ctrlCol, "");
+	mvprintw(i++,ctrlCol, "Ctrl+c/z:");
+	mvprintw(i++,ctrlCol, " Quit");
+	
 }
 
 void loadMan(){
@@ -550,3 +605,43 @@ void showMan(){
 	}
 
 }
+
+void rname(char* src){
+
+	char newname[25];
+	int newpid;
+	char msg[200];
+	int i, found;
+	
+	if((newpid = fork()) == -1){
+		perror("fork");
+
+	} else if(newpid == 0) {
+
+		alerti("Type new name of the file",newname);
+		
+		found = 0;
+		for(i=0;i<fileCount;i++){
+			if(strcmp(newname,filenames[i])==0){
+				found = 1;
+			}
+		}
+	
+		if(found){
+			strcpy(msg, newname);
+			strcat(msg, " already exists. Rename aborted...");
+			alert(msg);
+			exit(17);
+		}
+
+		if(rename(src,newname) == 0){
+			exit(17);
+		} else {
+			fprintf(stderr, "rename() failed");
+			exit(0);
+		}
+
+	} else {
+		wait(NULL);
+	}
+}	
