@@ -1,0 +1,41 @@
+This page is manual page for explorer
+
+Type 'q' to quit.
+
+Use right arrow to view next page of this manual.
+
+Use left arrow to view previous page of this manual.
+
+=====================================
+
+key controls
+
+Up arrow:
+	Move Cursor up.
+
+Down arrow:
+	Move Cursor down.
+
+Right arrow:
+	Display next 20 items on current directory.
+
+Left arrow:
+	Display previous 20 items on current directory.
+
+Enter:
+	View Items in the selected Folder.
+
+Backspace:
+	Go to the previous directory.
+
+c:
+	Duplicate a file. Creates 'copy_of_filename' of 'filename'.
+
+h:
+	opens manual page.
+
+Ctrl + c:
+	Quit Explorer.
+
+Ctrl + z:
+	Quit Explorer.
