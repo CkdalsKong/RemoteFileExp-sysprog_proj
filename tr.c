@@ -44,6 +44,7 @@ int fileCount = 0;
 
 WINDOW *alertwin;
 WINDOW *mypad;
+WINDOW *flist;
 
 /* parameter로 전달받은 경로에 존재하는 directory, file들을 출력 */
 void printDir(char* dirname);
@@ -111,64 +112,36 @@ void find_file();
 int main(int argc, char *argv[]) {
 	struct passwd *pw = getpwuid(getuid());
 	char *homedir = pw->pw_dir;
-	
-//	void server();
-//	void client();
-	
-//	char machine[20];
-//	char service[20];
-//	
-//	printf("What kind of machine (local or remote): ");
-//	scanf(" %s", machine);
-//	
-//	if (!strcmp(machine, "remote")) {
-//		switch(fork()) {
-//			case 0:
-//				while(1) {
-//					printf("server or client: ");
-//					scanf(" %s", service);
-//					if (!strcmp(service, "server")) {
-//						//server();
-//					}
-//					else if (!strcmp(service, "client")) {
-//						//client();
-//					}
-//					else {
-//						printf("Usage : <server> or <client>");
-//						continue;
-//					}
-//				}
-//			default:
-//				while(1) {
-//					wait(NULL);
-//				}
-//				break;
-//		}
-//	}
-//	else {
-//		int c;
-//		while ((c = getchar()) != '\n' && c != EOF) { }
-//	}
 
+	int i, j;
 	
 	
 	initscr();
 	resize_term(ROW + 1, COL);
+	
 	cbreak();
 	noecho();
 	start_color();
 	init_pair(1, COLOR_BLUE, COLOR_WHITE);
+	flist = newpad(100, 66);
 	
+	for(i=0;i<66;i++){
+		for(j=0;j<100;j++){
+			mvwprintw(flist,j,i,"@");
+		}
+	}
+
 	loadMan();
 	curdir = homedir;
 	printScr();
 	printDir(homedir);
 	showctrl();
+
 	while(1) {
 		moveCur();
 		
-		
 	}
+	delwin(flist);
 	delwin(mypad);
 	endwin();
 	
@@ -196,13 +169,16 @@ void printScr() {
 		mvprintw(i, 0, "|");
 		mvprintw(i, nameCol-1, "|");
 		mvprintw(i, COL-1, "|");
-		if (i == 3 || (i > 4 && i < ROW - 5)) {
-			mvprintw(i, timeCol-1, "|");
-			mvprintw(i, sizeCol-1, "|");
-			mvprintw(i, typeCol-1, "|");
-		}
 	}
-	
+	for(i=0;i<100;i++){
+		mvwprintw(flist, i, timeCol-nameCol-1, "|");
+		mvwprintw(flist, i, sizeCol-nameCol-1, "|");
+		mvwprintw(flist, i, typeCol-nameCol-1, "|");
+	}
+
+	mvprintw(3, timeCol-1, "|");
+	mvprintw(3, sizeCol-1, "|");
+	mvprintw(3, typeCol-1, "|");
 	mvprintw(3, nameCol + 7, "File_Name");
 	mvprintw(3, timeCol + 1, "Modified Time");
 	mvprintw(3, sizeCol + 1, "File_Size");
@@ -218,7 +194,7 @@ void printDir(char *dirname) {
 	struct stat fileinfo;
 	char cur_dir[4096];
 	char path[8192];
-	startRow = 5;
+	startRow = 0;
 	
 	freeFilenames();
 	if (strcmp(dirname, ".."))
@@ -270,22 +246,17 @@ void printDir(char *dirname) {
 				continue;
 			MALLOC(filenames[fileCount], sizeof(dirinfo->d_name));
 			strcpy(filenames[fileCount++], dirinfo->d_name);
-			if (fileCount > 20) continue;
-            snprintf(path, sizeof(path), "%s/%s", cur_dir, dirinfo->d_name);
-            doStat(path, dirinfo->d_name);
-			
 		}
 		sort();
 		
 		for(int i = 0; i < fileCount; i++) {
-			if (i > 19) continue;
 			snprintf(path, sizeof(path), "%s/%s", cur_dir, filenames[i]);
 			doStat(path, filenames[i]);
 			startRow++;
 		}
 	}
 	if (fileCount == 0) {
-		mvprintw(startRow + 8, nameCol + 1, "directory is empty");
+		mvwprintw(flist, 8, nameCol + 1, "directory is empty");
 	}
 	
 	refresh();
@@ -334,37 +305,40 @@ void printFileinfo(char*filename, struct stat* info) {
 	printSize(info);
 	printType(info);
 	if (S_ISDIR(info->st_mode))
-		mvprintw(startRow, nameCol + 1, "[%.24s]", filename);
+		mvwprintw(flist, startRow, 1, "[%.24s]", filename);
 	else
-		mvprintw(startRow, nameCol, "%.24s", filename);
-	
+		mvwprintw(flist, startRow, 0, "%.24s", filename);
+
+	mvwprintw(flist, startRow, timeCol-nameCol-1, "|");
+	mvwprintw(flist, startRow, sizeCol-nameCol-1, "|");
+	mvwprintw(flist, startRow, typeCol-nameCol-1, "|");	
 }
 
 void printSize(struct stat* info) {
 	long size = info->st_size;
 	
 	if (size < 1024)
-		mvprintw(startRow, sizeCol, "%5ldBytes", info->st_size);
+		mvwprintw(flist, startRow, sizeCol-nameCol, "%5ldBytes", info->st_size);
 	else if (size < 1024*1024)
-		mvprintw(startRow, sizeCol, "%8.2fKB", (double)info->st_size);
+		mvwprintw(flist, startRow, sizeCol-nameCol, "%8.2fKB", (double)info->st_size);
 	else if (size < 1024*1024*1024)
-		mvprintw(startRow, sizeCol, "%8.2fMB", (double)info->st_size);
+		mvwprintw(flist, startRow, sizeCol-nameCol, "%8.2fMB", (double)info->st_size);
 	else
-		mvprintw(startRow, sizeCol, "%8.2fGB", (double)info->st_size);
+		mvwprintw(flist, startRow, sizeCol-nameCol, "%8.2fGB", (double)info->st_size);
 }
 
 void printTime(struct stat* info) {
 	char *ctime();
-	mvprintw(startRow, timeCol + 1, "%.12s", 4+ctime(&info->st_mtime));
+	mvwprintw(flist, startRow, timeCol -nameCol + 1, "%.12s", 4+ctime(&info->st_mtime));
 }
 
 void printType(struct stat* info) {
 	if (S_ISDIR(info->st_mode))
-		mvprintw(startRow, typeCol + 1, "directory");
+		mvwprintw(flist, startRow, typeCol -nameCol + 1, "directory");
 	else if (S_ISREG(info->st_mode))
-		mvprintw(startRow, typeCol + 6, "file");
+		mvwprintw(flist, startRow, typeCol -nameCol + 6, "file");
 	else
-		mvprintw(startRow, typeCol + 3, "unknown");
+		mvwprintw(flist, startRow, typeCol -nameCol + 3, "unknown");
 }
 
 void print_memory_space(char* filepath)
@@ -419,48 +393,57 @@ void print_memory_space(char* filepath)
 
 void moveCur() {
 	int ch;
-	int finishRow, curRow, curCol, rowMax;
+	int finishRow, curRow, curCol, rowMax, curWinLoc;
 	char des[1024];
 
-	keypad(stdscr, TRUE);
+	keypad(flist, TRUE);
+	startRow = 0;
 	finishRow = startRow;
-	curRow = 5;
-	curCol = nameCol + 1;
-	if (fileCount > 20)
-		rowMax = ROW - 5;
-	else rowMax = 4 + fileCount;
+	curRow = 0;
+	curCol = 0;
+	rowMax = fileCount-1;
+	curWinLoc = 0;
 	
 	while(1) {
-		move(curRow, curCol);
+		wmove(flist, curRow, curCol);
 		if (fileCount != 0)
-			highlight(filenames[curRow - 5], curRow, 1);
+			highlight(filenames[curRow], curRow, 1);
 		
-		ch = getch();
+		touchwin(flist);
+		prefresh(flist, curWinLoc,0 , 5,nameCol , 24,79);
+		ch = wgetch(flist);
 		switch (ch) {
 			case KEY_UP:
-				if (curRow > 5) {
-					highlight(filenames[curRow - 5], curRow, 0);
+				if (curRow >= 0) {
+					highlight(filenames[curRow], curRow, 0);
 					curRow--;
-				} break;
+				}
+				if (curRow < curWinLoc){
+					curWinLoc = curRow;
+				}
+				break;
 			
 			case KEY_DOWN:
 				if (curRow < rowMax) {
-					highlight(filenames[curRow - 5], curRow, 0);
+					highlight(filenames[curRow], curRow, 0);
 					curRow++;
-				} break;
+				}
+				if (curRow > curWinLoc + 19){
+					curWinLoc = curRow - 19;
+				}
+				break;
 			
 			
 			//case KEY_LEFT:
 			//case KEY_RIGHT:
 			case KEY_ENTER:
 			case '\n'     :
-				curdir = filenames[curRow - 5];
+				curdir = filenames[curRow];
 				printDir(curdir);
-				curRow = 5;
+				curRow = 0;
+				curWinLoc = 0;
 				
-				if (fileCount > 20)
-					rowMax = ROW - 5;
-				else rowMax = 4 + fileCount;
+				rowMax = fileCount - 1;
 				break;
 			
 			case KEY_BACKSPACE:
@@ -469,29 +452,27 @@ void moveCur() {
 					break;
 				else
 					printDir("..");
-				curRow = 5;
-				if (fileCount > 20)
-					rowMax = ROW - 5;
-				else rowMax = 4 + fileCount;
+				curRow = 0;
+				rowMax = fileCount - 1;
 				break; // home일 경우 메시지 출력 구현하기
 			case 'c':
 				//strcpy(des, "copy_of_");
 				//strcat(des, filenames[curRow-5]);
 
 				alerti("Type name of new copy and Enter", des);
-				copy1(filenames[curRow-5], des);
-				loadscr();
+				copy1(filenames[curRow], des);
+				//loadscr();
 				break;
             case 'd':
                 file_delete(curRow);
-                loadscr();
+                //loadscr();
                 break;
             case 'm':
                 create_directory();
                 break;
 	    	case 'f':
 				find_file();
-				loadscr();
+				//loadscr();
 		break;
             case 'a':                   //테스트용
 				alert("This is not a drill.");
@@ -502,7 +483,7 @@ void moveCur() {
 				loadscr();
 				break;
 			case 'r':
-				rname(filenames[curRow-5]);
+				rname(filenames[curRow]);
 				loadscr();
 				break;
 			case 's':
@@ -527,34 +508,21 @@ void highlight(char *filename, int row, int flag) {
 		mvprintw(LINES - 1, nameCol + 1, "stat(%s) error: %s", filename, strerror(errno));
 	
 	if (flag == 1)
-		attron(A_BOLD | COLOR_PAIR(1));
+		wattron(flist, A_BOLD | COLOR_PAIR(1));
 		if (S_ISDIR(info.st_mode))
-		mvprintw(row, nameCol + 1, "[%.24s]", filename);
+		mvwprintw(flist, row, 1, "[%.24s]", filename);
 		else
-		mvprintw(row, nameCol, "%.24s",filename);
-		attroff(A_BOLD | COLOR_PAIR(1));
+		mvwprintw(flist, row, 0, "%.24s", filename);
+		wattroff(flist, A_BOLD | COLOR_PAIR(1));
 	}
-
-void highlightOff(char *filename, int row) {
-    struct stat info;
-    
-    if (stat(filename, &info) == -1)
-        perror(filename);
-    else {
-        if (S_ISDIR(info.st_mode))
-            mvprintw(row, nameCol + 1, "[%s]", filename);
-        else
-            mvprintw(row, nameCol, filename);
-    }
-}
 
 void freeFilenames() {
 	for(int i = 0; i < fileCount; i++) {
 		free(filenames[i]);
 	}
 	fileCount = 0;
-	clear();
-	printScr();
+	wclear(flist);
+	//printScr();
 }
 
 int checkHome(char* dirname) {
@@ -617,12 +585,12 @@ void file_delete(int curRow)
     char path[4096];
     getcwd(path, sizeof(path));
     strcat(path, "/");
-    strcat(path, filenames[curRow - 5]);
+    strcat(path, filenames[curRow]);
 
     // 파일 삭제
     if ((remove(path)) == -1)
     {
-        fprintf(stderr, "Failed to delete the file %s", filenames[curRow - 5]);
+        fprintf(stderr, "Failed to delete the file %s", filenames[curRow]);
     }
 }
 
@@ -643,7 +611,7 @@ void create_directory()
     }
     else
     {
-        loadscr();
+        //loadscr();
     }
 }
 
@@ -663,6 +631,7 @@ void copy1(char *src, char *des){
 		for(i=0;i<fileCount;i++){
 			if(strcmp(des,filenames[i])==0){
 				found = 1;
+				break;
 			}
 		}
 	
@@ -752,6 +721,8 @@ void loadscr(){
 	printDir(curdir);
 	showctrl();
 	refresh();
+	touchwin(flist);
+	prefresh(flist, 0,0 , 5,nameCol , 24,79);
 }
 
 void showctrl(){
@@ -814,7 +785,7 @@ void loadMan(){
 void showMan(){
 
 	int page = 1;
-	int maxpage=1;
+	int maxpage=2;
 	int stop = 0;
 	
 	prefresh(mypad, 0,0,0,0,29,79);
@@ -864,6 +835,7 @@ void rname(char* src){
 		for(i=0;i<fileCount;i++){
 			if(strcmp(newname,filenames[i])==0){
 				found = 1;
+				break;
 			}
 		}
 	
@@ -888,6 +860,7 @@ void rname(char* src){
 
 void sort() {
 	int t;
+	int i;
 	for (int i = 0; i < fileCount; i++)	 {
 		for (int j = i+1; j < fileCount; j++) {
 			if (sflag == 1) {
