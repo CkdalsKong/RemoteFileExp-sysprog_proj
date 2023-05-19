@@ -12,6 +12,7 @@
 #include <pwd.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <sys/wait.h>
 
 
 #define ROW 30
@@ -33,7 +34,9 @@ int timeCol = 42;
 int sizeCol = 58;
 int typeCol = 69;
 int ctrlCol = 1;
+int sflag = 0;
 char *curdir;			//현재 디렉토리 위치
+
 
 /* 현재 directory 안에 존재하는 항목 수 */
 int fileCount = 0;
@@ -46,6 +49,9 @@ void printDir(char* dirname);
 
 /* 프로그램 기본 화면 출력 */
 void printScr();
+
+/* directory 확인 */
+char* checkDir(char* dirname);
 
 /* stat에 path전달해주고, filename은 프로그램 화면에 출력위해 전달 */
 void doStat(char* path, char* filename);
@@ -65,7 +71,7 @@ void printType(struct stat* info);
 /*  */
 void moveCur();
 
-/* 현재 row에 존재하는 filename을 highlight */
+/* 현재 row에 존재하는 filename을 flag를 통해 highlight on(1), off(0) */
 void highlight(char* filename, int row, int flag);
 
 /* 디렉토리가 변경되었을 때 이전 디렉토리의 내용들을 초기화 */
@@ -79,6 +85,14 @@ ino_t get_inode(char* fname);
 
 /* 현재 디렉토리의 이름 dirstack에 전달 */
 void stackpush(char* dirname);
+
+/* sflag를 통한 디렉토리 정렬 */
+void sort();
+
+void swap(int i, int j);
+
+int compare(char*, char*);
+
 void copy1(char*, char*);	//복제
 void alert();			//입력없는 알림창
 void alerti(char*, char*);	//입력있는 알림창
@@ -91,6 +105,46 @@ void rname(char*);		//이름 변경
 int main(int argc, char *argv[]) {
 	struct passwd *pw = getpwuid(getuid());
 	char *homedir = pw->pw_dir;
+	
+//	void server();
+//	void client();
+	
+//	char machine[20];
+//	char service[20];
+//	
+//	printf("What kind of machine (local or remote): ");
+//	scanf(" %s", machine);
+//	
+//	if (!strcmp(machine, "remote")) {
+//		switch(fork()) {
+//			case 0:
+//				while(1) {
+//					printf("server or client: ");
+//					scanf(" %s", service);
+//					if (!strcmp(service, "server")) {
+//						//server();
+//					}
+//					else if (!strcmp(service, "client")) {
+//						//client();
+//					}
+//					else {
+//						printf("Usage : <server> or <client>");
+//						continue;
+//					}
+//				}
+//			default:
+//				while(1) {
+//					wait(NULL);
+//				}
+//				break;
+//		}
+//	}
+//	else {
+//		int c;
+//		while ((c = getchar()) != '\n' && c != EOF) { }
+//	}
+
+	
 	
 	initscr();
 	resize_term(ROW + 1, COL);
@@ -154,6 +208,11 @@ void printDir(char *dirname) {
 	startRow = 5;
 	
 	freeFilenames();
+	if (strcmp(dirname, ".."))
+		dirname = checkDir(dirname);
+	if (dirname == NULL) {
+		return;
+	}
 	
 	if (chdir(dirname) != 0) {
 		mvprintw(LINES - 1, nameCol + 1, "chdir(%s) error: %s",dirname, strerror(errno));
@@ -198,10 +257,14 @@ void printDir(char *dirname) {
 				continue;
 			MALLOC(filenames[fileCount], sizeof(dirinfo->d_name));
 			strcpy(filenames[fileCount++], dirinfo->d_name);
-			if (fileCount > 20) continue;
-			snprintf(path, sizeof(path), "%s/%s", cur_dir, dirinfo->d_name);
-			doStat(path, dirinfo->d_name);
 			
+		}
+		sort();
+		
+		for(int i = 0; i < fileCount; i++) {
+			if (i > 19) continue;
+			snprintf(path, sizeof(path), "%s/%s", cur_dir, filenames[i]);
+			doStat(path, filenames[i]);
 			startRow++;
 		}
 	}
@@ -210,6 +273,27 @@ void printDir(char *dirname) {
 	}
 	
 	refresh();
+}
+
+char* checkDir(char* dirname) {
+	char resolved_dir[4096];
+	
+	mvprintw(LINES, nameCol + 1, dirname);
+	if (realpath(dirname, resolved_dir) == NULL) {
+		mvprintw(LINES - 1, nameCol + 1, "realpath error : %s", dirname, strerror(errno));
+		return NULL;
+	}
+	else if (access(dirname, F_OK) == -1) {
+		mvprintw(LINES - 1, nameCol + 1, "not exist directory : %s", dirname, strerror(errno));
+		return NULL;
+	}
+	else if (access(dirname, R_OK | X_OK) == -1) {
+		mvprintw(LINES - 1, nameCol + 1, "access error: %s", dirname, strerror(errno));
+		return NULL;
+	}
+	
+	strcpy(dirname, resolved_dir);
+	return dirname;
 }
 
 void doStat(char *path, char *filename) {
@@ -277,7 +361,7 @@ void moveCur() {
 	curRow = 5;
 	curCol = nameCol + 1;
 	if (fileCount > 20)
-		rowMax = ROW - 6;
+		rowMax = ROW - 5;
 	else rowMax = 4 + fileCount;
 	
 	while(1) {
@@ -344,6 +428,15 @@ void moveCur() {
 				rname(filenames[curRow-5]);
 				loadscr();
 				break;
+			case 's':
+				sflag = 1;
+				printDir(curdir);
+				break;
+			case 'S':
+				sflag = 2;
+				printDir(curdir);
+				break;
+				
 			default:
 				continue;
 		}
@@ -363,19 +456,6 @@ void highlight(char *filename, int row, int flag) {
 		else
 		mvprintw(row, nameCol, "%.24s",filename);
 		attroff(A_BOLD | COLOR_PAIR(1));
-	}
-
-void highlightOff(char *filename, int row) {
-	struct stat info;
-	
-	if (stat(filename, &info) == -1)
-		perror(filename);
-	else {
-		if (S_ISDIR(info.st_mode))
-			mvprintw(row, nameCol + 1, "[%s]", filename);
-		else
-			mvprintw(row, nameCol, filename);
-	}
 }
 
 void freeFilenames() {
@@ -645,3 +725,39 @@ void rname(char* src){
 		wait(NULL);
 	}
 }	
+
+void sort() {
+	int t;
+	for (int i = 0; i < fileCount; i++)	 {
+		for (int j = i+1; j < fileCount; j++) {
+			if (sflag == 1) {
+				if (compare(filenames[i], filenames[j]) > 0)
+					swap(i, j);
+			}
+			if (sflag == 2) {
+				if (compare(filenames[i], filenames[j]) < 0)
+					swap(i, j);
+			}
+		}
+	}
+}
+
+int compare(char* a, char* b) {
+	for (int i = 0; ; i++) {
+		if (a[i]==0 && b[i]==0) return 0;
+		if (a[i]==0) return -1;
+		if (b[i]==0) return 1;
+		if (a[i] - b[i] > 0) return 1;
+		if (a[i] - b[i] < 0) return -1;
+	}
+	return 0;
+}
+
+void swap(int i, int j)	 {
+	char *temp;
+	MALLOC(temp, sizeof(filenames[i]))
+	strcpy(temp, filenames[i]);
+	strcpy(filenames[i], filenames[j]);
+	strcpy(filenames[j], temp);
+}
+
