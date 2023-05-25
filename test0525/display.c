@@ -306,18 +306,18 @@ void moveCur() {
 				
 				alerti("Type name of new copy and Enter", des);
 				copy1(filenames[curRow], des);
-				//loadscr();
+				loadscr();
 				break;
 			case 'd':
 				file_delete(curRow);
-				//loadscr();
+				loadscr();
 				break;
 			case 'm':
 				create_directory();
 				break;
 			case 'f':
 				find_file();
-				//loadscr();
+				loadscr();
 				break;
 			case 'h':
 				showMan();
