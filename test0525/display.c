@@ -88,6 +88,7 @@ void printDir(char *dirname) {
 	char cur_dir[4096];
 	char path[8192];
 	startRow = 0;
+	int i;
 	
 	freeFilenames();
 	if (strcmp(dirname, ".."))
@@ -143,7 +144,7 @@ void printDir(char *dirname) {
 		}
 		sort();
 		
-		for(int i = 0; i < fileCount; i++) {
+		for(i = 0; i < fileCount; i++) {
 			snprintf(path, sizeof(path), "%s/%s", cur_dir, filenames[i]);
 			doStat(path, filenames[i]);
 			startRow++;
@@ -152,7 +153,11 @@ void printDir(char *dirname) {
 	if (fileCount == 0) {
 		mvwprintw(flist, 8, nameCol + 1, "directory is empty");
 	}
-	
+	for(i=0;i<100;i++){
+		mvwprintw(flist, i, timeCol-nameCol-1, "|");
+		mvwprintw(flist, i, sizeCol-nameCol-1, "|");
+		mvwprintw(flist, i, typeCol-nameCol-1, "|");
+	}
 	refresh();
 }
 
@@ -202,10 +207,6 @@ void printFileinfo(char*filename, struct stat* info) {
 		mvwprintw(flist, startRow, 1, "[%.24s]", filename);
 	else
 		mvwprintw(flist, startRow, 0, "%.24s", filename);
-	
-	mvwprintw(flist, startRow, timeCol-nameCol-1, "|");
-	mvwprintw(flist, startRow, sizeCol-nameCol-1, "|");
-	mvwprintw(flist, startRow, typeCol-nameCol-1, "|");	
 }
 
 void printSize(struct stat* info) {
@@ -254,7 +255,7 @@ void moveCur() {
 			highlight(filenames[curRow], curRow, 1);
 		
 		touchwin(flist);
-		prefresh(flist, curWinLoc,0 , 5,nameCol , 24,79);
+		prefresh(flist, curWinLoc,0 , 5,nameCol , 24,78);
 		ch = wgetch(flist);
 		switch (ch) {
 			case KEY_UP:
@@ -317,10 +318,6 @@ void moveCur() {
 			case 'f':
 				find_file();
 				//loadscr();
-				break;
-			case 'a':                   //테스트용
-				alert("This is not a drill.");
-				loadscr();
 				break;
 			case 'h':
 				showMan();
