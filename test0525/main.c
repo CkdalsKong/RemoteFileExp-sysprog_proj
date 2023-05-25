@@ -47,13 +47,7 @@ int main(int argc, char *argv[]) {
 	start_color();
 	init_pair(1, COLOR_BLUE, COLOR_WHITE);
 
-	flist = newpad(100, 66);
-	
-	for(i=0;i<66;i++){
-		for(j=0;j<100;j++){
-			mvwprintw(flist,j,i,"@");
-		}
-	}
+	flist = newpad(100, 65);
 	
 	loadMan();
 	curdir = homedir;
