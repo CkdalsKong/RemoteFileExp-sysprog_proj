@@ -80,45 +80,58 @@ void client(char *hostname) {
 
 void display_results(int end, int sock) {
 	int ch;
-	int curRow, curCol, rowMax;
+	int curRow, curCol, rowMax, curPadLoc;
+
 	initscr();
 	resize_term(ROW + 1, COL);
 	cbreak();
 	noecho();
 	start_color();
 	init_pair(1, COLOR_BLUE, COLOR_WHITE);
-	keypad(stdscr, TRUE);
+
+	ilist = newpad(100,65);
+
+	keypad(ilist, TRUE);
 	clear();
 	printScr_r();
-	curRow = 5;
-	curCol = nameCol + 1;
+	curRow = 0;
+	curCol = 0;
 	read(end, &dirCount, sizeof(int));
 	read(end, dirlist, dirCount * sizeof(FileInfo));
 	mvprintw(LINES - 1, 0, "read success");
 	printDir2();
-	if (dirCount > 20)
-		rowMax = ROW - 6;
-	else rowMax = 4 + dirCount;
+	
+	rowMax = dirCount - 1;
+	curPadLoc = 0;
 	
 	while(1) {
-		move(curRow, curCol);
-		curdir = dirlist[curRow-5].filename;
+		touchwin(ilist);
+		wmove(ilist, curRow, curCol);
+		curdir = dirlist[curRow].filename;
 		if (dirCount != 0)
 			highlight_r(curdir, curRow, 1);
-		
-		ch = getch();
+	
+		prefresh(ilist, curPadLoc,0 , 5,nameCol , 24, 78);
+		ch = wgetch(ilist);
 		switch (ch) {
 			case KEY_UP:
-				if (curRow > 5) {
+				if (curRow > 0) {
 					highlight_r(curdir, curRow, 0);
 					curRow--;
+				} 
+				if (curRow < curPadLoc){
+					curPadLoc = curRow;
 				} break;
 			
 			case KEY_DOWN:
 				if (curRow < rowMax) {
 					highlight_r(curdir, curRow, 0);
 					curRow++;
-				} break;
+				}
+				if(curRow > curPadLoc + 19) {
+					curPadLoc = curRow - 19;
+				}
+				break;
 			case KEY_ENTER:
 			case '\n'     :
 				write(sock, curdir, strlen(curdir));
@@ -134,11 +147,11 @@ void display_results(int end, int sock) {
 					error_handling("read() error!");
 				}
 				printDir2();
-				curRow = 5;
+				curRow = 0;
+				curPadLoc = 0;
 				
-				if (dirCount > 20)
-					rowMax = ROW - 6;
-				else rowMax = 4 + dirCount;
+				rowMax = dirCount - 1;
+
 				break;
 			
 			case KEY_BACKSPACE:
@@ -149,11 +162,9 @@ void display_results(int end, int sock) {
 				read(end, &dirCount, sizeof(int));
 				read(end, dirlist, dirCount * sizeof(FileInfo));
 				printDir2();
-				curRow = 5;
+				curRow = 0;
 				
-				if (dirCount > 20)
-					rowMax = ROW - 6;
-				else rowMax = 4 + dirCount;
+				rowMax = dirCount - 1;
 				break;
 			case 's':
 				sflag = 1;
@@ -170,6 +181,7 @@ void display_results(int end, int sock) {
 	}
 
 	refresh();
+	delwin(ilist);
 }
 
 void receiveDirinfo(int sock) {
@@ -231,55 +243,61 @@ void printScr_r() {
 	mvprintw(3, timeCol + 1, "Modified Time");
 	mvprintw(3, sizeCol + 1, "File_Size");
 	mvprintw(3, typeCol + 1, "File_Type");
+
+	for(i=0;i<100;i++){
+		mvwprintw(ilist, i, timeCol-nameCol-1, "|");
+		mvwprintw(ilist, i, sizeCol-nameCol-1, "|");
+		mvwprintw(ilist, i, typeCol-nameCol-1, "|");
+	}
 	
 	refresh();
 }
 
 void printDir2() {
 	clear();
+	wclear(ilist);
 	printScr_r();
+
 	attron(A_BOLD);
 	mvprintw(1, 27, dirlist[0].curdir);
 	attroff(A_BOLD);
 	
 	mvprintw(ROW - 4, nameCol + 1, dirlist[0].path);
 	if (dirCount == 0) {
-		mvprintw(5, nameCol + 3, "directory is empty");
+		mvwprintw(ilist, 5, 2, "directory is empty");
 	}
 	for (int i = 0; i < dirCount; i++) {
-		if (i > 19)
-			break;
-		
 		printSize_r(i);
-		mvprintw(i + 5, timeCol, dirlist[i].modtime);
-		mvprintw(i + 5, typeCol, dirlist[i].filetype);
+		mvwprintw(ilist, i, timeCol-nameCol, dirlist[i].modtime);
+		mvwprintw(ilist, i, typeCol-nameCol, dirlist[i].filetype);
 		if (!strcmp(dirlist[i].filetype, "directory"))
-			mvprintw(i + 5, nameCol + 1, "[%.24s]",dirlist[i].filename);
+			mvwprintw(ilist, i, 1, "[%.24s]",dirlist[i].filename);
 		else
-			mvprintw(i + 5, nameCol + 1, "%.24s",dirlist[i].filename);
+			mvwprintw(ilist, i, 1, "%.24s",dirlist[i].filename);
 	}
 }
 
 void highlight_r(char *filename, int row, int flag) {
 	
 	if (flag == 1)
-		attron(A_BOLD | COLOR_PAIR(1));
-	if (!strcmp(dirlist[row-5].filetype, "directory"))
-		mvprintw(row, nameCol + 1, "[%.24s]", filename);
+		wattron(ilist, A_BOLD | COLOR_PAIR(1));
+	if (!strcmp(dirlist[row].filetype, "directory"))
+		mvwprintw(ilist, row, 1, "[%.24s]", filename);
 	else
-		mvprintw(row, nameCol, "%.24s",filename);
-	attroff(A_BOLD | COLOR_PAIR(1));
+		mvwprintw(ilist, row, 1, "%.24s",filename);
+	wattroff(ilist, A_BOLD | COLOR_PAIR(1));
 }
 
 void printSize_r(int i) {
 	long size = dirlist[i].filesize;
 	
 	if (size < 1024)
-		mvprintw(i + 5, sizeCol, "%5ldBytes", size);
+		mvwprintw(ilist, i, sizeCol-nameCol, "%5ldBytes", size);
 	else if (size < 1024*1024)
-		mvprintw(i + 5, sizeCol, "%8.2fKB", (double)size / 1024);
+		mvwprintw(ilist, i, sizeCol-nameCol, "%8.2fKB", (double)size / 1024);
 	else if (size < 1024*1024*1024)
-		mvprintw(i + 5, sizeCol, "%8.2fMB", (double)size / 1024*1024);
+		mvwprintw(ilist, i, sizeCol-nameCol, "%8.2fMB", (double)size / 1024*1024);
 	else
-		mvprintw(i + 5, sizeCol, "%8.2fGB", (double)size / 1024*1024*1024);
+		mvwprintw(ilist, i, sizeCol-nameCol, "%8.2fGB", (double)size / 1024*1024*1024);
 }
+
