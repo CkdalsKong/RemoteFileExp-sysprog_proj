@@ -26,43 +26,12 @@ if (!(p = malloc(s))) {\
 	exit(1);\
 }
 
-struct dirent *get_dirinfo()
-{
-    struct dirent *dirinfo;
-    DIR *dir_ptr;
-    char cur_dir[4096];
-    const char* home_dir = getenv("HOME");
-    chdir(home_dir);
-    getcwd(cur_dir, sizeof(cur_dir));
-    dir_ptr = opendir(cur_dir);
-    dirinfo = readdir(dir_ptr);
-
-    closedir(dir_ptr);
-
-    return dirinfo;
-}
-
-int memory_space(char* filepath)
-{
-	int percentage;
-    struct statvfs s;
-    if (statvfs(filepath, &s) != -1)
-    {
-        long long free_blocks = s.f_bfree;               // 유효 블록 수
-        long long total_blocks = s.f_blocks;             // 전체 블록 수
-
-        double used_ratio = 1.0 - (double)free_blocks / total_blocks; // 사용된 비율 계산
-        percentage = (int)(used_ratio * 100);                     // 사용된 메모리 비율(퍼센트)
-    }
-    return percentage;
-}
-
 void server() {
 	char dirname[BUF_SIZE];
 	char message[BUF_SIZE];
-	int str_len;
+	int str_len, option;
 	int serv_sock, clnt_sock;
-	
+	socklen_t optlen;
 	struct sockaddr_in serv_adr;
 	struct sockaddr_in clnt_adr;
 	
@@ -71,6 +40,11 @@ void server() {
 	serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 	if (serv_sock == -1)
 		error_handling("socket() error");
+	
+	option = 1;
+	optlen = sizeof(optlen);
+	setsockopt(serv_sock, SOL_SOCKET, SO_REUSEPORT, &option, optlen);
+	
 	
 	memset(&serv_adr, 0, sizeof(serv_adr));
 	serv_adr.sin_family = AF_INET;
@@ -94,7 +68,7 @@ void server() {
 	int recv_size;
 
     struct dirent *info = get_dirinfo();
-    int memory = memory_space(info->d_name);
+    memory = memory_space(info->d_name);
 
 	while ((recv_size = read(clnt_sock, message, BUF_SIZE - 1)) > 0) {
 		message[recv_size] = '\0';
@@ -167,8 +141,8 @@ void sendDirectoryInfo(int clnt_sock, char *dirname) {
 		snprintf(timebuf, sizeof(timebuf), "%.12s", 4+ctime(&fileinfo.st_mtime));
 		
 		// 파일 정보를 버퍼에 기록
-		snprintf(message, sizeof(message), "Name: %s | Type: %s | Size: %lld bytes | ModTime: %s | CurDir: %s | Path: %s\n",
-			dirinfo->d_name, file_type, fileinfo.st_size, timebuf, dirname, cur_dir);
+		snprintf(message, sizeof(message), "Name: %s | Type: %s | Size: %lld bytes | ModTime: %s | CurDir: %s | Path: %s | Memory: %d\n",
+			dirinfo->d_name, file_type, fileinfo.st_size, timebuf, dirname, cur_dir, memory);
 		
 		// 클라이언트에게 파일 정보 전송
 		if ((send_size = write(clnt_sock, message, strlen(message))) < 0) {
@@ -218,4 +192,35 @@ void error_handling(char *message) {
 	fputs(message, stderr);
 	fputc('\n', stderr);
 	exit(1);
+}
+
+struct dirent *get_dirinfo()
+{
+	struct dirent *dirinfo;
+	DIR *dir_ptr;
+	char cur_dir[4096];
+	const char* home_dir = getenv("HOME");
+	chdir(home_dir);
+	getcwd(cur_dir, sizeof(cur_dir));
+	dir_ptr = opendir(cur_dir);
+	dirinfo = readdir(dir_ptr);
+	
+	closedir(dir_ptr);
+	
+	return dirinfo;
+}
+
+int memory_space(char* filepath)
+{
+	int percentage;
+	struct statvfs s;
+	if (statvfs(filepath, &s) != -1)
+		{
+			long long free_blocks = s.f_bfree;               // 유효 블록 수
+			long long total_blocks = s.f_blocks;             // 전체 블록 수
+			
+			double used_ratio = 1.0 - (double)free_blocks / total_blocks; // 사용된 비율 계산
+			percentage = (int)(used_ratio * 100);                     // 사용된 메모리 비율(퍼센트)
+		}
+	return percentage;
 }
