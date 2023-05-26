@@ -216,6 +216,37 @@ void parseDir(char *message) {
 	dirCount++;
 }
 
+void display_memory_space(int percentage)
+{
+    int length = (COL - 2) - (nameCol + 1);
+    int graph_width = length * percentage / 100;
+
+    // 메모리 사용량 퍼센트를 하이라이트된 부분 중간에 표시한다.
+    char pct_str[8];
+    snprintf(pct_str, sizeof(pct_str), "%d%%", percentage);
+    int pct_pos = nameCol + 1 + graph_width / 2 - (int)(strlen(pct_str) / 2);
+    attron(A_BOLD | COLOR_PAIR(1));
+    mvprintw(ROW - 2, pct_pos, pct_str);
+    attroff(A_BOLD | COLOR_PAIR(1));
+    // 그래프를 화면에 그린다.
+    for (int i = 0; i < length; i++)
+    {
+        if (i < graph_width)
+        {
+            attron(A_BOLD | COLOR_PAIR(2));
+            mvprintw(ROW - 2, nameCol + 1 + i, " ");
+            attroff(A_BOLD | COLOR_PAIR(2));
+        }
+        else
+        {
+            attron(A_BOLD | COLOR_PAIR(3));
+            mvprintw(ROW - 2, nameCol + 1 + i, " ");
+            attroff(A_BOLD | COLOR_PAIR(3));
+        }
+    }
+    mvprintw(ROW - 2, pct_pos, pct_str);
+}
+
 void printScr_r() {
 	int i, j;
 	for(i = 0; i < COL; i++) {
@@ -243,6 +274,7 @@ void printScr_r() {
 	mvprintw(3, timeCol + 1, "Modified Time");
 	mvprintw(3, sizeCol + 1, "File_Size");
 	mvprintw(3, typeCol + 1, "File_Type");
+    display_memory_space(memoryspace);
 	
 	attron(A_BOLD);
 	mvprintw(1, 27, dirlist[0].curdir);
@@ -301,4 +333,3 @@ void printSize_r(int i) {
 	else
 		mvwprintw(ilist, i, sizeCol-nameCol, "%8.2fGB", (double)size / 1024*1024*1024);
 }
-
