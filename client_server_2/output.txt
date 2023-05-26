@@ -1,448 +1,140 @@
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Basic | Type: directory | Size: 192 bytes | ModTime: Mar  5 15:24  | CurDir: C++  | Path: /Users/cmk/C++
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Drop Box | Type: directory | Size: 96 bytes | ModTime: Jul 11 14:34  | CurDir: Public  | Path: /Users/cmk/Public
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: cmk | Type: directory | Size: 2304 bytes | ModTime: May 26 14:14  | CurDir: /Users/cmk  | Path: /Users
-Name: Shared | Type: directory | Size: 288 bytes | ModTime: Apr  2 01:46  | CurDir: /Users/cmk  | Path: /Users
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: lab8 | Type: directory | Size: 480 bytes | ModTime: May  5 00:44  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: out.txt | Type: regular | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: week6 | Type: directory | Size: 384 bytes | ModTime: Apr  6 18:26  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: test | Type: directory | Size: 224 bytes | ModTime: Apr 18 13:45  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week7 | Type: directory | Size: 480 bytes | ModTime: Apr 18 01:15  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: lab11 | Type: directory | Size: 256 bytes | ModTime: May 21 23:16  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: lab10 | Type: directory | Size: 384 bytes | ModTime: May 16 21:04  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week5_HW | Type: directory | Size: 192 bytes | ModTime: Apr  6 18:44  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: 1 | Type: regular | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: operationsys | Type: directory | Size: 128 bytes | ModTime: Apr  1 15:20  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_10 | Type: directory | Size: 224 bytes | ModTime: May 25 00:50  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_9 | Type: directory | Size: 416 bytes | ModTime: May 12 22:41  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_7 | Type: directory | Size: 96 bytes | ModTime: Apr 29 18:32  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_6 | Type: directory | Size: 192 bytes | ModTime: Apr 27 13:36  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_8 | Type: directory | Size: 320 bytes | ModTime: May  8 23:03  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week5 | Type: directory | Size: 352 bytes | ModTime: Apr  6 18:44  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week3_HW | Type: directory | Size: 448 bytes | ModTime: Mar 29 20:52  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week4 | Type: directory | Size: 480 bytes | ModTime: Apr 20 16:43  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week3 | Type: directory | Size: 576 bytes | ModTime: Mar 21 13:27  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: sample | Type: directory | Size: 128 bytes | ModTime: May  9 18:22  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Basic | Type: directory | Size: 192 bytes | ModTime: Mar  5 15:24  | CurDir: C++  | Path: /Users/cmk/C++
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PracAlone | Type: directory | Size: 384 bytes | ModTime: Apr 20 00:19  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week6 | Type: directory | Size: 864 bytes | ModTime: Apr 19 22:22  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week7 | Type: directory | Size: 576 bytes | ModTime: Apr 17 22:50  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week9 | Type: directory | Size: 480 bytes | ModTime: Apr 27 10:04  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week13 | Type: directory | Size: 480 bytes | ModTime: May 25 16:15  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week12 | Type: directory | Size: 704 bytes | ModTime: May 18 10:59  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: 4week | Type: directory | Size: 384 bytes | ModTime: Apr  6 18:43  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: 5week | Type: directory | Size: 608 bytes | ModTime: Apr  6 18:43  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: 2week | Type: directory | Size: 224 bytes | ModTime: Apr  6 18:43  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: 3week | Type: directory | Size: 384 bytes | ModTime: Apr  6 18:43  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: 1week | Type: directory | Size: 224 bytes | ModTime: Apr 18 23:32  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: dlkfajsf;ldaf;oijewq;nfkladsn;lfkanldksjfljf;lsdjfask;lafsdf; | Type: directory | Size: 64 bytes | ModTime: May 12 20:16  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week10 | Type: directory | Size: 256 bytes | ModTime: May  4 09:51  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: week11 | Type: directory | Size: 512 bytes | ModTime: May 11 10:59  | CurDir: NetworkProgramming  | Path: /Users/cmk/NetworkProgramming
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: lab8 | Type: directory | Size: 480 bytes | ModTime: May  5 00:44  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: out.txt | Type: regular | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: week6 | Type: directory | Size: 384 bytes | ModTime: Apr  6 18:26  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: test | Type: directory | Size: 224 bytes | ModTime: Apr 18 13:45  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week7 | Type: directory | Size: 480 bytes | ModTime: Apr 18 01:15  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: lab11 | Type: directory | Size: 256 bytes | ModTime: May 21 23:16  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: lab10 | Type: directory | Size: 384 bytes | ModTime: May 16 21:04  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week5_HW | Type: directory | Size: 192 bytes | ModTime: Apr  6 18:44  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: 1 | Type: regular | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: operationsys | Type: directory | Size: 128 bytes | ModTime: Apr  1 15:20  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_10 | Type: directory | Size: 224 bytes | ModTime: May 25 00:50  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_9 | Type: directory | Size: 416 bytes | ModTime: May 12 22:41  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_7 | Type: directory | Size: 96 bytes | ModTime: Apr 29 18:32  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_6 | Type: directory | Size: 192 bytes | ModTime: Apr 27 13:36  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: HW_8 | Type: directory | Size: 320 bytes | ModTime: May  8 23:03  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week5 | Type: directory | Size: 352 bytes | ModTime: Apr  6 18:44  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week3_HW | Type: directory | Size: 448 bytes | ModTime: Mar 29 20:52  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week4 | Type: directory | Size: 480 bytes | ModTime: Apr 20 16:43  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: week3 | Type: directory | Size: 576 bytes | ModTime: Mar 21 13:27  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: sample | Type: directory | Size: 128 bytes | ModTime: May  9 18:22  | CurDir: SystemProgramming  | Path: /Users/cmk/SystemProgramming
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: chap16_awtswing | Type: directory | Size: 224 bytes | ModTime: May 24 09:06  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: [5ì£¼ì°¨]ì¤ìµ ì½ë | Type: directory | Size: 192 bytes | ModTime: Mar 30 10:13  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 프로그램 | Type: directory | Size: 160 bytes | ModTime: Feb 10 17:18  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 프로그래밍 기초 | Type: directory | Size: 320 bytes | ModTime: Nov 21 02:44  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 기타 | Type: directory | Size: 192 bytes | ModTime: Mar  2 12:39  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 스프링 | Type: directory | Size: 96 bytes | ModTime: Mar  2 12:38  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 7ì£¼ì°¨ ì¤ìµì½ë | Type: directory | Size: 288 bytes | ModTime: Apr 13 09:47  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: ì°¸ê³  ê°ììë£.zip-2.download | Type: directory | Size: 64 bytes | ModTime: Apr  6 11:22  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: Java áá¥á«áá©á¼ ááªáá¦ 03-áá©á¼áá¡á¸ááµá¸áá®á¯áá³á·ááªá«ááµ.pdf | Type: regular | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: echo_client-2.c | Type: regular | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: test | Type: regular | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: test.class | Type: regular | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: com.proximabeta.nikke_105.8_21_und3fined.ipa | Type: regular | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: ì°¸ê³  ê°ììë£ | Type: directory | Size: 160 bytes | ModTime: Apr  6 11:23  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 확률과통계 | Type: directory | Size: 224 bytes | ModTime: Nov 27 14:29  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: $RECYCLE.BIN | Type: directory | Size: 224 bytes | ModTime: Dec 17 22:06  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: eclipse-inst-jre-win64.exe | Type: regular | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: midexam1 | Type: directory | Size: 320 bytes | ModTime: Apr 19 11:18  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 네트워크 | Type: directory | Size: 256 bytes | ModTime: Mar 16 09:02  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: SystemProgramming Term Project Team 8.pptx | Type: regular | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: echo_client-1.c | Type: regular | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: ì°¸ê³  ê°ììë£.zip.download | Type: directory | Size: 128 bytes | ModTime: Apr  6 11:22  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 자료구조 | Type: directory | Size: 192 bytes | ModTime: Mar  2 17:16  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: SystemProgramming Term Project Team 8 (1).pptx | Type: regular | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: gdb_test | Type: directory | Size: 192 bytes | ModTime: Mar 11 13:59  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: week7_term_prj_003.pdf | Type: regular | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: Java áá¥á«áá©á¼ ááªáá¦ 05-áá©á¼áá¡á¸áá¨áá£á¨ Interface ááµá¾ áá¡á¼áá©á¨.pdf | Type: regular | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: NetworkProgramming  | Path: /Users/cmk
-Name: week7_lab7_003.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 9ì£¼ì°¨.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: gdb_test.zip | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: week10_lab9_003.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 시스템 | Type: directory | Size: 288 bytes | ModTime: Mar 10 00:03  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: chap17_swingevent | Type: directory | Size: 224 bytes | ModTime: May 24 09:01  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: Assignment1-1.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: nikkeminiloader_official.wg.intl (1).exe | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: ideaIC-2023.1.exe | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: test.java | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: echo_storeserv.c | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 순서도 | Type: directory | Size: 512 bytes | ModTime: Nov 21 02:43  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 7ì£¼ì°¨_ë°°í¬ì©.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 13ì£¼ì°¨(ê³µì§ì©).pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: Java áá¥á«áá©á¼ ááªáá¦ 07-áá¥á¯áá¦á¨áá§á«-Jokeráá¡áá³áá¦ááµá·.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: com.proximabeta.nikke_107.4_9__und3fined.ipa | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: nikkeminiloader_official.wg.intl.exe | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: ubuntu-22.04.2-live-server-amd64.iso.torrent | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 2019-13736_LEE_lab1 | Type: directory | Size: 384 bytes | ModTime: Apr 18 23:39  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 10ì£¼ì°¨-1.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: week4_chap4-part1_003.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 2023áá§á« áá¥á«áá©á¼ áá¡áá¡ áá®á¼áá¡á«áá©áá¡.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: ideaIU-2023.1.exe | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: dev_pts_1.png | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: [HW#6]ping_ball_003(revised).pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: desktop.ini | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 2019-13736_LEE_lab1.zip | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 6ì£¼ì°¨.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: sec12 | Type: directory | Size: 192 bytes | ModTime: Apr  5 08:58  | CurDir: Downloads  | Path: /Users/cmk/Downloads
-Name: 2019114971_이창민.zip | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: 22621.525.220925-0207.ni_release_svc_refresh_CLIENTCONSUMER_RET_A64FRE_ko-kr.iso | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: sample_proposal2.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: sample_proposal3.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: ChromeSetup.exe | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: sample_proposal1.pdf | Type: regular | Size: 0 bytes | ModTime:  | CurDir:  | Path: 
-Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk
-Name: cmk | Type: directory | Size: 2304 bytes | ModTime: May 26 14:38  | CurDir: /Users/cmk  | Path: /Users
-Name: Shared | Type: directory | Size: 288 bytes | ModTime: Apr  2 01:46  | CurDir: /Users/cmk  | Path: /Users
-Name: home | Type: directory | Size: 1 bytes | ModTime: May 12 16:59  | CurDir: /Users/cmk  | Path: /
-Name: usr | Type: directory | Size: 352 bytes | ModTime: Apr  2 01:46  | CurDir: /Users/cmk  | Path: /
-Name: bin | Type: directory | Size: 1248 bytes | ModTime: Apr  2 01:46  | CurDir: /Users/cmk  | Path: /
-Name: sbin | Type: directory | Size: 2048 bytes | ModTime: Apr  2 01:46  | CurDir: /Users/cmk  | Path: /
-Name: etc | Type: directory | Size: 2560 bytes | ModTime: May 12 02:20  | CurDir: /Users/cmk  | Path: /
-Name: var | Type: directory | Size: 1120 bytes | ModTime: May 12 16:59  | CurDir: /Users/cmk  | Path: /
-Name: Library | Type: directory | Size: 2144 bytes | ModTime: May 12 02:02  | CurDir: /Users/cmk  | Path: /
-Name: System | Type: directory | Size: 320 bytes | ModTime: Apr  2 01:46  | CurDir: /Users/cmk  | Path: /
-Name: private | Type: directory | Size: 192 bytes | ModTime: May 12 16:59  | CurDir: /Users/cmk  | Path: /
-Name: Users | Type: directory | Size: 160 bytes | ModTime: May 12 02:02  | CurDir: /Users/cmk  | Path: /
-Name: Applications | Type: directory | Size: 1472 bytes | ModTime: May 18 00:01  | CurDir: /Users/cmk  | Path: /
-Name: opt | Type: directory | Size: 96 bytes | ModTime: Dec 19 02:19  | CurDir: /Users/cmk  | Path: /
-Name: dev | Type: directory | Size: 4714 bytes | ModTime: May 12 16:59  | CurDir: /Users/cmk  | Path: /
-Name: Volumes | Type: directory | Size: 96 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /
-Name: tmp | Type: directory | Size: 160 bytes | ModTime: May 26 11:56  | CurDir: /Users/cmk  | Path: /
-Name: cores | Type: directory | Size: 64 bytes | ModTime: May 10 06:30  | CurDir: /Users/cmk  | Path: /
+Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0
+Name: Music | Type: directory | Size: 192 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: C++ | Type: directory | Size: 128 bytes | ModTime: May 11 09:05  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: temp | Type: directory | Size: 384 bytes | ModTime: May  9 15:32  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: eclipse | Type: directory | Size: 160 bytes | ModTime: Mar  8 09:55  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Python | Type: directory | Size: 320 bytes | ModTime: May 18 11:54  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaWorkspace3_1 | Type: directory | Size: 384 bytes | ModTime: Apr 19 11:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: PerfectC | Type: directory | Size: 352 bytes | ModTime: May 12 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Pictures | Type: directory | Size: 256 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: git-test | Type: directory | Size: 128 bytes | ModTime: Feb  8 20:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Java_eclipse | Type: directory | Size: 128 bytes | ModTime: Mar 15 10:03  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Desktop | Type: directory | Size: 736 bytes | ModTime: May 25 00:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Library | Type: directory | Size: 3072 bytes | ModTime: May 23 15:53  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: JavaInCoderun | Type: directory | Size: 128 bytes | ModTime: Dec 19 18:40  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: algorithm | Type: directory | Size: 896 bytes | ModTime: May 22 20:39  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Parallels | Type: directory | Size: 160 bytes | ModTime: Apr 24 18:20  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: NetworkProgramming | Type: directory | Size: 544 bytes | ModTime: May 25 09:23  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Spring_test | Type: directory | Size: 160 bytes | ModTime: Feb 21 18:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: SystemProgramming | Type: directory | Size: 736 bytes | ModTime: May 25 14:16  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Public | Type: directory | Size: 128 bytes | ModTime: Jul 11 14:34  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: GitHub | Type: directory | Size: 384 bytes | ModTime: May 26 11:25  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: sourcetree | Type: directory | Size: 96 bytes | ModTime: Jan 19 01:52  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: emptydir | Type: directory | Size: 64 bytes | ModTime: May 12 20:07  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications (Parallels) | Type: directory | Size: 160 bytes | ModTime: May 26 03:24  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Movies | Type: directory | Size: 224 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Applications | Type: directory | Size: 128 bytes | ModTime: Jan 28 23:36  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Documents | Type: directory | Size: 512 bytes | ModTime: Apr  9 19:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Zomboid | Type: directory | Size: 416 bytes | ModTime: Feb  1 04:08  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 71
+Name: Downloads | Type: directory | Size: 2144 bytes | ModTime: May 25 10:11  | CurDir: /Users/cmk  | Path: /Users/cmk | Memory: 0

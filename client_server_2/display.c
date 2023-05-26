@@ -85,8 +85,8 @@ void printDir(char *dirname) {
 	DIR *dir_ptr;
 	struct dirent *dirinfo;
 	struct stat fileinfo;
-	char cur_dir[4096];
-	char path[8192];
+	char *cur_dir;
+	char path[4096];
 	startRow = 0;
 	int i;
 	
@@ -102,7 +102,8 @@ void printDir(char *dirname) {
 		return;
 	}
 	
-	if (getcwd(cur_dir, sizeof(cur_dir)) != NULL) {
+	MALLOC(cur_dir, 1024*sizeof(char));
+	if (getcwd(cur_dir, 1024*sizeof(char)) != NULL) {
 		attron(A_BOLD);
 		if (!strcmp(dirname, "..")) {
 			if (stackcount > 1) {

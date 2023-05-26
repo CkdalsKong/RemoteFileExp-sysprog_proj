@@ -95,6 +95,12 @@ void sendDirectoryInfo(int clnt_sock, char *dirname) {
 	if (!strcmp(dirname, "homedir"))
 		dirname = homedir;
 	
+	if (!strcmp(dirname, "..")) {
+		if (storecount <= 1) {
+			dirname = homedir;
+			storecount--;
+		}
+	}
 	if (chdir(dirname) == -1)
 		error_handling("chdir() error");
 	

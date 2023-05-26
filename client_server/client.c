@@ -199,6 +199,7 @@ void receiveDir(int sock) {
 		}
 		
 		parseDir(message);
+		fprintf(fp, "%d\n", memoryspace);
 		fprintf(fp,"Name: %s | Type: %s | Size: %lld bytes | ModTime: %s | CurDir: %s | Path: %s\n",
 			dirlist[dirCount-1].filename ,dirlist[dirCount-1].filetype, dirlist[dirCount-1].filesize, dirlist[dirCount-1].modtime, dirlist[dirCount-1].curdir, dirlist[dirCount-1].path);
 		memset(message, 0, sizeof(message));
@@ -212,8 +213,8 @@ void parseDir(char *message) {
 	char *ptr = strstr(message, " | Type: ");
 	strncpy(dirlist[dirCount].filename, &message[6], ptr - &message[6]);
 	dirlist[dirCount].filename[ptr - &message[6]] = '\0'; // null 문자 추가
-	sscanf(ptr, " | Type: %s | Size: %lld bytes | ModTime: %[^|] | CurDir: %[^|] | Path: %s\n",
-		dirlist[dirCount].filetype, &dirlist[dirCount].filesize, dirlist[dirCount].modtime, dirlist[dirCount].curdir, dirlist[dirCount].path);
+	sscanf(ptr, " | Type: %s | Size: %lld bytes | ModTime: %[^|] | CurDir: %[^|] | Path: %s | Memory: %d\n",
+		dirlist[dirCount].filetype, &dirlist[dirCount].filesize, dirlist[dirCount].modtime, dirlist[dirCount].curdir, dirlist[dirCount].path, &memoryspace);
 	dirCount++;
 }
 

@@ -16,6 +16,7 @@
 #include <signal.h>
 #include "client.h"
 #include "server.h"
+#include "sorting.h"
 
 extern int nameCol;
 extern int timeCol;
@@ -93,7 +94,7 @@ void display_results(int end, int sock) {
 
 	keypad(ilist, TRUE);
 	clear();
-	printScr_r();
+//	printScr_r();
 	curRow = 0;
 	curCol = 0;
 	read(end, &dirCount, sizeof(int));
@@ -105,7 +106,7 @@ void display_results(int end, int sock) {
 	curPadLoc = 0;
 	
 	while(1) {
-		touchwin(ilist);
+//		touchwin(ilist);
 		wmove(ilist, curRow, curCol);
 		curdir = dirlist[curRow].filename;
 		if (dirCount != 0)
@@ -198,8 +199,8 @@ void receiveDirinfo(int sock) {
 		}
 		
 		parseDir(message);
-		fprintf(fp,"Name: %s | Type: %s | Size: %lld bytes | ModTime: %s | CurDir: %s | Path: %s\n",
-			dirlist[dirCount-1].filename ,dirlist[dirCount-1].filetype, dirlist[dirCount-1].filesize, dirlist[dirCount-1].modtime, dirlist[dirCount-1].curdir, dirlist[dirCount-1].path);
+		fprintf(fp,"Name: %s | Type: %s | Size: %lld bytes | ModTime: %s | CurDir: %s | Path: %s | Memory: %d\n",
+			dirlist[dirCount-1].filename ,dirlist[dirCount-1].filetype, dirlist[dirCount-1].filesize, dirlist[dirCount-1].modtime, dirlist[dirCount-1].curdir, dirlist[dirCount-1].path, dirlist[dirCount].memoryspace);
 		memset(message, 0, sizeof(message));
 		write(sock, "done", strlen("done"));
 	}
@@ -212,39 +213,8 @@ void parseDir(char *message) {
 	strncpy(dirlist[dirCount].filename, &message[6], ptr - &message[6]);
 	dirlist[dirCount].filename[ptr - &message[6]] = '\0'; // null 문자 추가
 	sscanf(ptr, " | Type: %s | Size: %lld bytes | ModTime: %[^|] | CurDir: %[^|] | Path: %s | Memory: %d\n",
-		dirlist[dirCount].filetype, &dirlist[dirCount].filesize, dirlist[dirCount].modtime, dirlist[dirCount].curdir, dirlist[dirCount].path, &memoryspace);
+		dirlist[dirCount].filetype, &dirlist[dirCount].filesize, dirlist[dirCount].modtime, dirlist[dirCount].curdir, dirlist[dirCount].path, &dirlist[dirCount].memoryspace);
 	dirCount++;
-}
-
-void display_memory_space(int percentage)
-{
-    int length = (COL - 2) - (nameCol + 1);
-    int graph_width = length * percentage / 100;
-
-    // 메모리 사용량 퍼센트를 하이라이트된 부분 중간에 표시한다.
-    char pct_str[8];
-    snprintf(pct_str, sizeof(pct_str), "%d%%", percentage);
-    int pct_pos = nameCol + 1 + graph_width / 2 - (int)(strlen(pct_str) / 2);
-    attron(A_BOLD | COLOR_PAIR(1));
-    mvprintw(ROW - 2, pct_pos, pct_str);
-    attroff(A_BOLD | COLOR_PAIR(1));
-    // 그래프를 화면에 그린다.
-    for (int i = 0; i < length; i++)
-    {
-        if (i < graph_width)
-        {
-            attron(A_BOLD | COLOR_PAIR(2));
-            mvprintw(ROW - 2, nameCol + 1 + i, " ");
-            attroff(A_BOLD | COLOR_PAIR(2));
-        }
-        else
-        {
-            attron(A_BOLD | COLOR_PAIR(3));
-            mvprintw(ROW - 2, nameCol + 1 + i, " ");
-            attroff(A_BOLD | COLOR_PAIR(3));
-        }
-    }
-    mvprintw(ROW - 2, pct_pos, pct_str);
 }
 
 void printScr_r() {
@@ -274,7 +244,7 @@ void printScr_r() {
 	mvprintw(3, timeCol + 1, "Modified Time");
 	mvprintw(3, sizeCol + 1, "File_Size");
 	mvprintw(3, typeCol + 1, "File_Type");
-    display_memory_space(memoryspace);
+	display_memory_space();
 	
 	attron(A_BOLD);
 	mvprintw(1, 27, dirlist[0].curdir);
@@ -295,7 +265,7 @@ void printDir2() {
 	clear();
 	wclear(ilist);
 	printScr_r();
-	
+	sort2();
 	if (dirCount == 0) {
 		mvwprintw(ilist, 5, 2, "directory is empty");
 	}
@@ -332,4 +302,62 @@ void printSize_r(int i) {
 		mvwprintw(ilist, i, sizeCol-nameCol, "%8.2fMB", (double)size / 1024*1024);
 	else
 		mvwprintw(ilist, i, sizeCol-nameCol, "%8.2fGB", (double)size / 1024*1024*1024);
+}
+
+void display_memory_space()
+{
+	init_pair(3, COLOR_WHITE, COLOR_BLUE);
+	int length = (COL - 2) - (nameCol + 1);
+	int graph_width = length * dirlist[0].memoryspace / 100;
+	
+	// 메모리 사용량 퍼센트를 하이라이트된 부분 중간에 표시한다.
+	char pct_str[16];
+	snprintf(pct_str, sizeof(pct_str), "%d%%", dirlist[0].memoryspace);
+	int pct_pos = nameCol + 1 + graph_width / 2 - (int)(strlen(pct_str) / 2);
+
+	// 그래프를 화면에 그린다.
+	for (int i = 0; i < length; i++)
+		{
+			if (i < graph_width)
+				{
+					attron(A_BOLD | COLOR_PAIR(1));
+					mvprintw(ROW - 2, nameCol + 1 + i, " ");
+					attroff(A_BOLD | COLOR_PAIR(1));
+				}
+			else
+				{
+					attron(A_BOLD | COLOR_PAIR(3));
+					mvprintw(ROW - 2, nameCol + 1 + i, " ");
+					attroff(A_BOLD | COLOR_PAIR(3));
+				}
+		}
+	
+	attron(A_BOLD | COLOR_PAIR(1));
+	mvprintw(ROW - 2, pct_pos, "%s", pct_str);
+	attroff(A_BOLD | COLOR_PAIR(1));
+}
+
+
+void sort2() {
+	int t;
+	for (int i = 0; i < dirCount; i++)	 {
+		for (int j = i+1; j < dirCount; j++) {
+			if (sflag == 1) {
+				if (compare(dirlist[i].filename, dirlist[j].filename) > 0)
+					swap2(i, j);
+			}
+			if (sflag == 2) {
+				if (compare(dirlist[i].filename, dirlist[j].filename) < 0)
+					swap2(i, j);
+			}
+		}
+	}
+}
+
+void swap2(int i, int j)	 {
+	char *temp;
+	MALLOC(temp, sizeof(dirlist[i].filename))
+	strcpy(temp, dirlist[i].filename);
+	strcpy(dirlist[i].filename, dirlist[j].filename);
+	strcpy(dirlist[j].filename, temp);
 }
