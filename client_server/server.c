@@ -42,7 +42,7 @@ struct dirent *get_dirinfo()
     return dirinfo;
 }
 
-int print_memory_space(char* filepath)
+int memory_space(char* filepath)
 {
     struct statvfs s;
     if (statvfs(filepath, &s) != -1)
