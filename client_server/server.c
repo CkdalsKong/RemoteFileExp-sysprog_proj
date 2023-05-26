@@ -42,18 +42,13 @@ struct dirent *get_dirinfo()
     return dirinfo;
 }
 
-int memory_space(char* filepath)
+int print_memory_space(char* filepath)
 {
     struct statvfs s;
     if (statvfs(filepath, &s) != -1)
     {
-        long long block_size = s.f_bsize;                // 파일 시스템 블록 크기
         long long free_blocks = s.f_bfree;               // 유효 블록 수
         long long total_blocks = s.f_blocks;             // 전체 블록 수
-        long long free_space = block_size * free_blocks; // 사용가능한 저장공간
-        char str[32];
-        int length = 64;
-        sprintf(str, "%lld", free_space);
 
         double used_ratio = 1.0 - (double)free_blocks / total_blocks; // 사용된 비율 계산
         int percentage = (int)(used_ratio * 100);                     // 사용된 메모리 비율(퍼센트)
