@@ -218,24 +218,23 @@ void parseDir(char *message) {
 
 void display_memory_space(int percentage)
 {
+    init_pair(3, COLOR_WHITE, COLOR_BLUE);
     int length = (COL - 2) - (nameCol + 1);
     int graph_width = length * percentage / 100;
 
     // 메모리 사용량 퍼센트를 하이라이트된 부분 중간에 표시한다.
-    char pct_str[8];
+    char pct_str[16];
     snprintf(pct_str, sizeof(pct_str), "%d%%", percentage);
     int pct_pos = nameCol + 1 + graph_width / 2 - (int)(strlen(pct_str) / 2);
-    attron(A_BOLD | COLOR_PAIR(1));
-    mvprintw(ROW - 2, pct_pos, pct_str);
-    attroff(A_BOLD | COLOR_PAIR(1));
+
     // 그래프를 화면에 그린다.
     for (int i = 0; i < length; i++)
     {
         if (i < graph_width)
         {
-            attron(A_BOLD | COLOR_PAIR(2));
+            attron(A_BOLD | COLOR_PAIR(1));
             mvprintw(ROW - 2, nameCol + 1 + i, " ");
-            attroff(A_BOLD | COLOR_PAIR(2));
+            attroff(A_BOLD | COLOR_PAIR(1));
         }
         else
         {
@@ -244,7 +243,9 @@ void display_memory_space(int percentage)
             attroff(A_BOLD | COLOR_PAIR(3));
         }
     }
-    mvprintw(ROW - 2, pct_pos, pct_str);
+    attron(A_BOLD | COLOR_PAIR(1));
+    mvprintw(ROW - 2, pct_pos, "%s", pct_str);
+    attroff(A_BOLD | COLOR_PAIR(1));
 }
 
 void printScr_r() {
