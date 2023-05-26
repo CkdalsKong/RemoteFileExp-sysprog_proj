@@ -18,10 +18,47 @@
 #include "server.h"
 #include "display.h"
 
+#include <sys/statvfs.h>
+
 #define MALLOC(p, s) \
 if (!(p = malloc(s))) {\
 	perror("malloc() error");\
 	exit(1);\
+}
+
+struct dirent *get_dirinfo()
+{
+    struct dirent *dirinfo;
+    DIR *dir_ptr;
+    char cur_dir[4096];
+    const char* home_dir = getenv("HOME");
+    chdir(home_dir);
+    getcwd(cur_dir, sizeof(cur_dir));
+    dir_ptr = opendir(cur_dir);
+    dirinfo = readdir(dir_ptr);
+
+    closedir(dir_ptr);
+
+    return dirinfo;
+}
+
+int memory_space(char* filepath)
+{
+    struct statvfs s;
+    if (statvfs(filepath, &s) != -1)
+    {
+        long long block_size = s.f_bsize;                // 파일 시스템 블록 크기
+        long long free_blocks = s.f_bfree;               // 유효 블록 수
+        long long total_blocks = s.f_blocks;             // 전체 블록 수
+        long long free_space = block_size * free_blocks; // 사용가능한 저장공간
+        char str[32];
+        int length = 64;
+        sprintf(str, "%lld", free_space);
+
+        double used_ratio = 1.0 - (double)free_blocks / total_blocks; // 사용된 비율 계산
+        int percentage = (int)(used_ratio * 100);                     // 사용된 메모리 비율(퍼센트)
+    }
+    return percentage;
 }
 
 void server() {
@@ -34,7 +71,6 @@ void server() {
 	struct sockaddr_in clnt_adr;
 	
 	socklen_t clnt_adr_sz;
-	
 	
 	serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 	if (serv_sock == -1)
@@ -60,6 +96,10 @@ void server() {
 		printf("Connected clinet\n");
 	
 	int recv_size;
+
+    struct dirent *info = get_dirinfo();
+    int memory = memory_space(info->d_name);
+
 	while ((recv_size = read(clnt_sock, message, BUF_SIZE - 1)) > 0) {
 		message[recv_size] = '\0';
 		printf("waiting...\n");
