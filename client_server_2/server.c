@@ -27,8 +27,11 @@ if (!(p = malloc(s))) {\
 }
 
 void server() {
+	struct passwd *pw = getpwuid(getuid());
+	char *homedir = pw->pw_dir;
 	char dirname[BUF_SIZE];
 	char message[BUF_SIZE];
+	char mode[BUF_SIZE];
 	int str_len, option;
 	int serv_sock, clnt_sock;
 	socklen_t optlen;
@@ -72,8 +75,12 @@ void server() {
 
 	while ((recv_size = read(clnt_sock, message, BUF_SIZE - 1)) > 0) {
 		message[recv_size] = '\0';
-		printf("waiting...\n");
-		sendDirectoryInfo(clnt_sock, message);
+		printf("%s\n", message);
+		if (!strcmp(message, "homedir"))
+			sendDirectoryInfo(clnt_sock, homedir);
+		else {
+			sendDirectoryInfo(clnt_sock, message);
+		}
 		
 		memset(message, 0, sizeof(message));
 	}
@@ -91,9 +98,6 @@ void sendDirectoryInfo(int clnt_sock, char *dirname) {
 	ssize_t send_size;
 	
 	char *ctime(const time_t *);
-
-	if (!strcmp(dirname, "homedir"))
-		dirname = homedir;
 	
 	if (!strcmp(dirname, "..")) {
 		if (storecount <= 1) {

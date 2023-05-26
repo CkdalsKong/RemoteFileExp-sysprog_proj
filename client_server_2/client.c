@@ -82,7 +82,8 @@ void client(char *hostname) {
 void display_results(int end, int sock) {
 	int ch;
 	int curRow, curCol, rowMax, curPadLoc;
-
+	char *temp;
+	ssize_t bytes_read;
 	initscr();
 	resize_term(ROW + 1, COL);
 	cbreak();
@@ -135,10 +136,11 @@ void display_results(int end, int sock) {
 				break;
 			case KEY_ENTER:
 			case '\n'     :
+
 				write(sock, curdir, strlen(curdir));
 				
 				memset(dirlist, 0, dirCount * sizeof(FileInfo));
-				ssize_t bytes_read = read(end, &dirCount, sizeof(int));
+				bytes_read = read(end, &dirCount, sizeof(int));
 				if (bytes_read < 0) {
 					error_handling("read() error!");
 				}
@@ -175,6 +177,7 @@ void display_results(int end, int sock) {
 				sflag = 2;
 				printDir2();
 				break;
+
 			
 			default:
 				continue;

@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "display.h"
 #include "sorting.h"
 #include "file_management.h"
@@ -36,6 +37,7 @@ extern char *filenames[100];
 extern int fileCount;
 extern int sflag;
 extern char *homedir;
+extern FILE *fplocal;
 
 WINDOW *flist;
 
@@ -88,8 +90,7 @@ void printDir(char *dirname) {
 	char *cur_dir;
 	char path[4096];
 	startRow = 0;
-	int i;
-	
+	int i;
 	freeFilenames();
 	if (strcmp(dirname, ".."))
 		dirname = checkDir(dirname);
@@ -109,7 +110,7 @@ void printDir(char *dirname) {
 			if (stackcount > 1) {
 				free(dirstack[stackcount]);
 				mvprintw(1, 27, BLANK);
-				curdir = dirstack[stackcount];
+				curdir = dirstack[stackcount-1];
 				mvprintw(1, 27, dirstack[--stackcount]);
 			}
 		}
@@ -125,6 +126,7 @@ void printDir(char *dirname) {
 		mvprintw(LINES - 1, nameCol + 1, "getcwd() error: %s", strerror(errno));
 		return;
 	}
+	fprintf(fplocal, "curdir(printDir) : %s\n", curdir);
 	
 	// 맨 밑에 현재 경로 표시
 	mvprintw(ROW - 4, nameCol + 1, BLANK);
@@ -143,13 +145,15 @@ void printDir(char *dirname) {
 				strcmp(dirinfo->d_name, "..") == 0 ||
 				strcmp(dirinfo->d_name, "") == 0)
 				continue;
-			MALLOC(filenames[fileCount], sizeof(dirinfo->d_name));
+			
+			MALLOC(filenames[fileCount], 1024 * sizeof(char));
 			strcpy(filenames[fileCount++], dirinfo->d_name);
 		}
 		sort();
 		
 		for(i = 0; i < fileCount; i++) {
 			snprintf(path, sizeof(path), "%s/%s", cur_dir, filenames[i]);
+			fprintf(fplocal, "%d: %s\n", i, filenames[i]);
 			doStat(path, filenames[i]);
 			startRow++;
 		}
@@ -191,7 +195,7 @@ char* checkDir(char* dirname) {
 void doStat(char* path, char* filename) {
 	struct stat info;
 	
-	if (stat(path, &info) == -1) {
+	if (stat(filename, &info) == -1) {
 		mvprintw(LINES - 1, nameCol + 1, "stat( %s ) error: %s", path, strerror(errno));
 		return;
 	}
@@ -209,6 +213,7 @@ void printFileinfo(char*filename, struct stat* info) {
 	printTime(info);
 	printSize(info);
 	printType(info);
+	
 	if (S_ISDIR(info->st_mode))
 		mvwprintw(flist, startRow, 1, "[%.24s]", filename);
 	else
@@ -399,7 +404,7 @@ ino_t get_inode(char* fname) {
 }
 
 void stackpush(char *dirname) {
-	MALLOC(dirstack[++stackcount], sizeof(*dirname));
+	MALLOC(dirstack[++stackcount], 1024 * sizeof(char));
 	strcpy(dirstack[stackcount], dirname);
 }
 
@@ -408,4 +413,21 @@ void freestack() {
 		free(dirstack[i]);
 	}
 	stackcount = 0;
+}
+
+int isValidFilename(const char *filename) {
+	int i = 0;
+	
+	while (filename[i]) {
+		if (isKoreanCharacter(filename[i])) {
+			return 0;
+		}
+		i++;
+	}
+	
+	return 1;
+}
+
+int isKoreanCharacter(unsigned char c) {
+	return (0xE0 <= c && c <= 0xEF);
 }

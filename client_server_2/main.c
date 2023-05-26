@@ -33,6 +33,7 @@ char *filenames[100];
 char *homedir;
 /* 현재 directory 안에 존재하는 항목 수 */
 int fileCount = 0;
+FILE *fplocal;
 
 extern WINDOW* mypad;
 extern WINDOW* flist;
@@ -42,20 +43,32 @@ int main(int argc, char *argv[]) {
 	homedir = pw->pw_dir;
 	char message[64];
 	
-	printf("local or remote : ");
-	scanf(" %s", message);
-	if (!strcmp(message, "remote")) {
-		printf("server or client : ");
+	while(1) {
+		printf("local or remote : ");
 		scanf(" %s", message);
-		if (!strcmp(message, "server"))
-			server();
-		else {
-			printf("Hostname : ");
-			scanf(" %s", message);
-			client(message);
+		if (!strcmp(message, "remote")) {
+			while(1) {
+				printf("server or client : ");
+				scanf(" %s", message);
+				if (!strcmp(message, "server")) {
+					server();
+					break;
+				}
+				else if (!strcmp(message, "client")) {
+					printf("Hostname : ");
+					scanf(" %s", message);
+					client(message);
+					break;
+				}
+				else
+					continue;
+			}
 		}
+		else if (!strcmp(message, "local"))
+			break;
 	}
 	
+	fplocal = fopen("localoutput.txt", "a");
 	initscr();
 	resize_term(ROW + 1, COL);
 	cbreak();

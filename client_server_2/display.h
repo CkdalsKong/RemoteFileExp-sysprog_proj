@@ -43,3 +43,7 @@ ino_t get_inode(char* fname);
 void stackpush(char* dirname);
 
 void freestack();
+
+int isValidFilename(const char *filename);
+
+int isKoreanCharacter(unsigned char c);
