@@ -1,320 +1,0 @@
-curdir(printDir) : /Users/cmk
-0: Music
-1: C++
-2: temp
-3: eclipse
-4: Python
-5: JavaWorkspace3_1
-6: PerfectC
-7: Pictures
-8: git-test
-9: Java_eclipse
-10: Desktop
-11: Library
-12: JavaInCoderun
-13: algorithm
-14: Parallels
-15: NetworkProgramming
-16: Spring_test
-17: SystemProgramming
-18: Public
-19: GitHub
-20: sourcetree
-21: emptydir
-22: Applications (Parallels)
-23: Movies
-24: Applications
-25: Documents
-26: Zomboid
-27: Downloads
-curdir(printDir) : /Users/cmk
-0: Music
-1: C++
-2: temp
-3: eclipse
-4: Python
-5: JavaWorkspace3_1
-6: PerfectC
-7: Pictures
-8: git-test
-9: Java_eclipse
-10: Desktop
-11: Library
-12: JavaInCoderun
-13: algorithm
-14: Parallels
-15: NetworkProgramming
-16: Spring_test
-17: SystemProgramming
-18: Public
-19: GitHub
-20: sourcetree
-21: emptydir
-22: Applications (Parallels)
-23: Movies
-24: Applications
-25: Documents
-26: Zomboid
-27: Downloads
-curdir(printDir) : /Users/cmk/NetworkProgramming
-0: PracAlone
-1: week6
-2: week7
-3: week9
-4: week13
-5: week12
-6: localoutput.txt
-7: 4week
-8: 5week
-9: 2week
-10: 3week
-11: 1week
-12: dlkfajsf;ldaf;oijewq;nfkladsn;lfkanldksjfljf;lsdjfask;lafsdf;
-13: week10
-14: week11
-curdir(printDir) : /Users/cmk
-0: Music
-1: C++
-2: temp
-3: eclipse
-4: Python
-5: JavaWorkspace3_1
-6: PerfectC
-7: Pictures
-8: git-test
-9: Java_eclipse
-10: Desktop
-11: Library
-12: JavaInCoderun
-13: algorithm
-14: Parallels
-15: NetworkProgramming
-16: Spring_test
-17: SystemProgramming
-18: Public
-19: GitHub
-20: sourcetree
-21: emptydir
-22: Applications (Parallels)
-23: Movies
-24: Applications
-25: Documents
-26: Zomboid
-27: Downloads
-curdir(printDir) : /Users/cmk
-0: Applications
-1: Applications (Parallels)
-2: C++
-3: Desktop
-4: Documents
-5: Downloads
-6: GitHub
-7: JavaInCoderun
-8: JavaWorkspace3_1
-9: Java_eclipse
-10: Library
-11: Movies
-12: Music
-13: NetworkProgramming
-14: Parallels
-15: PerfectC
-16: Pictures
-17: Public
-18: Python
-19: Spring_test
-20: SystemProgramming
-21: Zomboid
-22: algorithm
-23: eclipse
-24: emptydir
-25: git-test
-26: sourcetree
-27: temp
-curdir(printDir) : /Users/cmk/Downloads
-0: 기타
-1: 네트워크
-2: 순서도
-3: 스프링
-4: 시스템
-5: 자료구조
-6: 프로그래밍 기초
-7: 프로그램
-8: 확률과통계
-9: $RECYCLE.BIN
-10: 10ì£¼ì°¨-1.pdf
-11: 13ì£¼ì°¨(ê³µì§ì©).pdf
-12: 2019-13736_LEE_lab1
-13: 2019-13736_LEE_lab1.zip
-14: 2019114971_이창민.zip
-15: 2023áá§á« áá¥á«áá©á¼ áá¡áá¡ áá®á¼áá¡á«áá©áá¡.pdf
-16: 22621.525.220925-0207.ni_release_svc_refresh_CLIENTCONSUMER_RET_A64FRE_ko-kr.iso
-17: 6ì£¼ì°¨.pdf
-18: 7ì£¼ì°¨ ì¤ìµì½ë
-19: 7ì£¼ì°¨_ë°°í¬ì©.pdf
-20: 9ì£¼ì°¨.pdf
-21: Assignment1-1.pdf
-22: ChromeSetup.exe
-23: Java áá¥á«áá©á¼ ááªáá¦ 03-áá©á¼áá¡á¸ááµá¸áá®á¯áá³á·ááªá«ááµ.pdf
-24: Java áá¥á«áá©á¼ ááªáá¦ 05-áá©á¼áá¡á¸áá¨áá£á¨ Interface ááµá¾ áá¡á¼áá©á¨.pdf
-25: Java áá¥á«áá©á¼ ááªáá¦ 07-áá¥á¯áá¦á¨áá§á«-Jokeráá¡áá³áá¦ááµá·.pdf
-26: SystemProgramming Term Project Team 8 (1).pptx
-27: SystemProgramming Term Project Team 8.pptx
-28: [5ì£¼ì°¨]ì¤ìµ ì½ë
-29: [HW#6]ping_ball_003(revised).pdf
-30: chap16_awtswing
-31: chap17_swingevent
-32: com.proximabeta.nikke_105.8_21_und3fined.ipa
-33: com.proximabeta.nikke_107.4_9__und3fined.ipa
-34: desktop.ini
-35: dev_pts_1.png
-36: echo_client-1.c
-37: echo_client-2.c
-38: echo_storeserv.c
-39: eclipse-inst-jre-win64.exe
-40: gdb_test
-41: gdb_test.zip
-42: ì°¸ê³  ê°ììë£
-43: ì°¸ê³  ê°ììë£.zip-2.download
-44: ì°¸ê³  ê°ììë£.zip.download
-45: ideaIC-2023.1.exe
-46: ideaIU-2023.1.exe
-47: localoutput.txt
-48: midexam1
-49: nikkeminiloader_official.wg.intl (1).exe
-50: nikkeminiloader_official.wg.intl.exe
-51: sample_proposal1.pdf
-52: sample_proposal2.pdf
-53: sample_proposal3.pdf
-54: sec12
-55: temp
-56: test
-57: test.class
-58: test.java
-59: ubuntu-22.04.2-live-server-amd64.iso.torrent
-60: week10_lab9_003.pdf
-61: week4_chap4-part1_003.pdf
-62: week7_lab7_003.pdf
-63: week7_term_prj_003.pdf
-curdir(printDir) : /Users/cmk
-0: Music
-1: C++
-2: temp
-3: eclipse
-4: Python
-5: JavaWorkspace3_1
-6: PerfectC
-7: Pictures
-8: git-test
-9: Java_eclipse
-10: Desktop
-11: Library
-12: JavaInCoderun
-13: algorithm
-14: Parallels
-15: NetworkProgramming
-16: Spring_test
-17: SystemProgramming
-18: Public
-19: GitHub
-20: sourcetree
-21: emptydir
-22: Applications (Parallels)
-23: Movies
-24: Applications
-25: Documents
-26: Zomboid
-27: Downloads
-curdir(printDir) : /Users/cmk
-0: Applications
-1: Applications (Parallels)
-2: C++
-3: Desktop
-4: Documents
-5: Downloads
-6: GitHub
-7: JavaInCoderun
-8: JavaWorkspace3_1
-9: Java_eclipse
-10: Library
-11: Movies
-12: Music
-13: NetworkProgramming
-14: Parallels
-15: PerfectC
-16: Pictures
-17: Public
-18: Python
-19: Spring_test
-20: SystemProgramming
-21: Zomboid
-22: algorithm
-23: eclipse
-24: emptydir
-25: git-test
-26: sourcetree
-27: temp
-curdir(printDir) : /Users/cmk/Downloads
-0: $RECYCLE.BIN
-1: 10ì£¼ì°¨-1.pdf
-2: 13ì£¼ì°¨(ê³µì§ì©).pdf
-3: 2019-13736_LEE_lab1
-4: 2019-13736_LEE_lab1.zip
-5: 2023áá§á« áá¥á«áá©á¼ áá¡áá¡ áá®á¼áá¡á«áá©áá¡.pdf
-6: 22621.525.220925-0207.ni_release_svc_refresh_CLIENTCONSUMER_RET_A64FRE_ko-kr.iso
-7: 6ì£¼ì°¨.pdf
-8: 7ì£¼ì°¨ ì¤ìµì½ë
-9: 7ì£¼ì°¨_ë°°í¬ì©.pdf
-10: 9ì£¼ì°¨.pdf
-11: Assignment1-1.pdf
-12: ChromeSetup.exe
-13: Java áá¥á«áá©á¼ ááªáá¦ 03-áá©á¼áá¡á¸ááµá¸áá®á¯áá³á·ááªá«ááµ.pdf
-14: Java áá¥á«áá©á¼ ááªáá¦ 05-áá©á¼áá¡á¸áá¨áá£á¨ Interface ááµá¾ áá¡á¼áá©á¨.pdf
-15: Java áá¥á«áá©á¼ ááªáá¦ 07-áá¥á¯áá¦á¨áá§á«-Jokeráá¡áá³áá¦ááµá·.pdf
-16: SystemProgramming Term Project Team 8 (1).pptx
-17: SystemProgramming Term Project Team 8.pptx
-18: [5ì£¼ì°¨]ì¤ìµ ì½ë
-19: [HW#6]ping_ball_003(revised).pdf
-20: chap16_awtswing
-21: chap17_swingevent
-22: com.proximabeta.nikke_105.8_21_und3fined.ipa
-23: com.proximabeta.nikke_107.4_9__und3fined.ipa
-24: desktop.ini
-25: dev_pts_1.png
-26: echo_client-1.c
-27: echo_client-2.c
-28: echo_storeserv.c
-29: eclipse-inst-jre-win64.exe
-30: gdb_test
-31: gdb_test.zip
-32: ì°¸ê³  ê°ììë£
-33: ì°¸ê³  ê°ììë£.zip-2.download
-34: ì°¸ê³  ê°ììë£.zip.download
-35: ideaIC-2023.1.exe
-36: ideaIU-2023.1.exe
-37: localoutput.txt
-38: midexam1
-39: nikkeminiloader_official.wg.intl (1).exe
-40: nikkeminiloader_official.wg.intl.exe
-41: onlyEnglishFile
-42: onlyEnglishFile
-43: onlyEnglishFile
-44: onlyEnglishFile
-45: onlyEnglishFile
-46: onlyEnglishFile
-47: onlyEnglishFile
-48: onlyEnglishFile
-49: onlyEnglishFile
-50: onlyEnglishFile
-51: sample_proposal1.pdf
-52: sample_proposal2.pdf
-53: sample_proposal3.pdf
-54: sec12
-55: temp
-56: test
-57: test.class
-58: test.java
-59: ubuntu-22.04.2-live-server-amd64.iso.torrent
-60: week10_lab9_003.pdf
-61: week4_chap4-part1_003.pdf
-62: week7_lab7_003.pdf
-63: week7_term_prj_003.pdf
