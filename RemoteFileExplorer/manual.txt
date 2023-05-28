@@ -2,11 +2,11 @@ This page is manual page for explorer
 
 Type 'q' to quit.
 
-Use right arrow to view next page of this manual.
+Type 'n' to view next page of this manual.
 
-Use left arrow to view previous page of this manual.
+Type 'p' to view previous page of this manual.
 
-=====================================
+======================================================
 
 key controls
 
@@ -23,22 +23,28 @@ Backspace:
 	Go to the previous directory.
 
 c:
-	Duplicate a file. Creates 'copy_of_filename' of 'filename'.
+	Duplicate file in current row. Aborts if the name exist or fails.
 	
 d:
-	delete file in current row
+	Delete file in current row.
 	
 m:
-	create new directory
+	Create new directory.
+
+f:
+	Search for Files including search context.
+
+r:
+	Rename your current file.
 
 s:
-	sort in descending order
+	Sort in ascending order.	(A to Z)
 	
 S:
-	soct in ascending order
+	Sort in descending order.	(Z to A)
 
 h:
-	opens manual page.
+	Opens manual page.
 
 Q:
-	exit the program 
+	Exit program.
