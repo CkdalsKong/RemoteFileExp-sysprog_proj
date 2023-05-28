@@ -30,10 +30,8 @@ void server() {
 	struct passwd *pw = getpwuid(getuid());
 	char *homedir = pw->pw_dir;
 	struct stat s_info;
-	char dirname[BUF_SIZE];
 	char message[BUF_SIZE];
-	char mode[BUF_SIZE];
-	int str_len, option;
+	int option;
 	int serv_sock, clnt_sock;
 	socklen_t optlen;
 	struct sockaddr_in serv_adr;
@@ -172,7 +170,6 @@ void sendDirectoryInfo(int clnt_sock, char *dirname) {
 		perror("opendir()");
 		return;
 	}
-	int count = 0;
 	// 디렉토리의 모든 파일을 순환하며 클라이언트에게 정보 전송
 	char message[BUF_SIZE];
 	while ((dirinfo = readdir(dir)) != NULL) {
@@ -260,7 +257,7 @@ struct dirent *get_dirinfo()
 
 int memory_space(char* filepath)
 {
-	int percentage;
+	int percentage = 0;
 	struct statvfs s;
 	if (statvfs(filepath, &s) != -1)
 		{

@@ -30,7 +30,6 @@ void swap(int i, int j)	 {
 }
 
 void sort() {
-	int t;
 	for (int i = 0; i < fileCount; i++)	 {
 		for (int j = i+1; j < fileCount; j++) {
 			if (sflag == 1) {

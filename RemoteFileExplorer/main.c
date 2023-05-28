@@ -44,10 +44,9 @@ FILE *fplocal;
 extern WINDOW* mypad;
 extern WINDOW* flist;
 
-int main(int argc, char *argv[]) {
+int main() {
 	struct passwd *pw = getpwuid(getuid());
 	homedir = pw->pw_dir;
-	struct termios new_termios;
 	tcgetattr(STDIN_FILENO, &original_termios);
 	atexit(restore_terminal_settings);
 	

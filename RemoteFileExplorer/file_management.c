@@ -25,7 +25,6 @@ void copy1(char *src, char *des){
 	int newpid;
 	int in_fd, out_fd, n_chars;
 	char buf[4096];
-	char msg[200];
 	
 	if ((newpid = fork()) == -1){
 		perror("fork");

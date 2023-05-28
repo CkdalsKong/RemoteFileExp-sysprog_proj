@@ -93,7 +93,6 @@ void loadscr(){
 void loadMan(){
 	
 	FILE *fp = NULL;
-	int i=0;
 	char buf[80];
 
 	manual = (char**)malloc(100*sizeof(char*));
@@ -115,7 +114,7 @@ void loadMan(){
 }
 
 void showMan(){
-	
+	int ch;
 	int page = 0;
 	int maxpage;
 	int stop = 0;
@@ -125,6 +124,7 @@ void showMan(){
 	maxpage = manualLines/30;
 
 	mypad = newpad(maxpage*30+30, 80);
+	keypad(mypad, TRUE);
 
 	for(i=0;i<manualLines;i++){
 		mvwprintw(mypad, i,0, "%s", manual[i]);
@@ -133,20 +133,22 @@ void showMan(){
 	prefresh(mypad, 0,0,0,0,29,79);
 	while(!stop){
 		touchwin(mypad);
-		switch(getch()){
-			case 'p':
-				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_p'                                ");
+		switch(ch = wgetch(mypad)){
+			case KEY_LEFT:
+				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_left'");
 				if(page>0){
 					page--;
 					prefresh(mypad, page*30,0,0,0,29,79);
 				}
+				refresh();
 				break;
-			case 'n':
-				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_n'                                ");
+			case KEY_RIGHT:
+				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_right'");
 				if(page<maxpage){
 					page++;
 					prefresh(mypad, page*30,0,0,0,29,79);
 				}
+				refresh();
 				break;
 			case 'q':
 				erase();

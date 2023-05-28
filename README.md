@@ -58,14 +58,14 @@ Remote File Explorer is a Linux-based file navigation program designed to help u
 
 #### **File Operations**
 
-- **c** : Duplicate a file. Creates 'copy_of_filename' of 'filename'.
+- **c** : Duplicate a file in current row. Aborts if the name exist or fails
 - **d** : Delete file in the current row.
 - **m** : Create new directory.
 
 #### **Sorting**
 
-- **s** : Sort in descending order.
-- **S** : Sort in ascending order.
+- **s** : Sort in ascending order. (A to Z)
+- **S** : Sort in descending order. (A to Z)
 
 #### **Other**
 

@@ -9,8 +9,8 @@ void printScr();
 /* directory 확인 */
 char* checkDir(char* dirname);
 
-/* stat에 path전달해주고, filename은 프로그램 화면에 출력위해 전달 */
-void doStat(char* path, char* filename);
+/* stat에 filename 전달하여 파일정보 얻고 화면에 출력 */
+void doStat(char* filename);
 
 /* stat정보들을 통해 file 이름, 수정시간, 크기, 종류들을 화면상에 출력 */
 void printFileinfo(char* filename, struct stat* info);

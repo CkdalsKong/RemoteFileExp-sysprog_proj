@@ -32,7 +32,7 @@ WINDOW* ilist;
 void client(char *hostname) {
 	int pip[2];
 	char message[BUF_SIZE];
-	int str_len, end;
+	int end;
 	struct sockaddr_in serv_adr;
 	struct hostent *server;
 
@@ -90,7 +90,7 @@ void client(char *hostname) {
 	close(sock);
 }
 
-void sig2_handle(int sig) {
+void sig2_handle() {
 	if (pid)
 		wait(NULL);
 	endwin();
@@ -98,7 +98,7 @@ void sig2_handle(int sig) {
 	exit(0);
 }
 
-void signal_handle_child(int sig) {
+void signal_handle_child() {
 	struct passwd *pw = getpwuid(getuid());
 	char *homedir = pw->pw_dir;
 	FILE *fp;
@@ -106,7 +106,7 @@ void signal_handle_child(int sig) {
 	char filename[BUF_SIZE];
 	char dir_path[BUF_SIZE];
 	char file_path[BUF_SIZE];
-	int read_size;
+	long read_size;
 	long file_size;
 	long remain;
 	
@@ -134,14 +134,13 @@ void signal_handle_child(int sig) {
 	kill(getppid(), SIGUSR1);
 }
 
-void signal_handle_parent(int sig) {
+void signal_handle_parent() {
 	sigflag = 1;
 }
 
 void display_results(int end, int sock) {
 	int ch;
 	int curRow, curCol, rowMax, curPadLoc;
-	char *temp;
 	ssize_t bytes_read;
 	char modemsg[BUF_SIZE];
 	
@@ -289,7 +288,6 @@ void display_results(int end, int sock) {
 void receiveDirinfo(int sock) {
 	char message[BUF_SIZE];
 	ssize_t recv_size;
-	int count = 0;
 	FILE *fp;
 	fp = fopen("output.txt", "a");
 	
@@ -319,7 +317,7 @@ void parseDir(char *message) {
 }
 
 void printScr_r() {
-	int i, j;
+	int i;
 	for(i = 0; i < COL; i++) {
 		mvprintw(0, i, "-");
 		if (i > 12){
@@ -446,7 +444,6 @@ void display_memory_space()
 
 
 void sort2() {
-	int t;
 	for (int i = 0; i < dirCount; i++)	 {
 		for (int j = i+1; j < dirCount; j++) {
 			if (sflag == 1) {

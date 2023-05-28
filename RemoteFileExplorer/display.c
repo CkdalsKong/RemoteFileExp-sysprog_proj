@@ -50,7 +50,7 @@ void printScr() {
 	getcwd(cur_dir, sizeof(cur_dir));
 	dir_ptr = opendir(cur_dir);
 	dirinfo = readdir(dir_ptr);
-	int i, j;
+	int i;
 	for(i = 0; i < COL; i++) {
 		mvprintw(0, i, "-");
 		if (i > nameCol-1){
@@ -88,7 +88,6 @@ void printScr() {
 void printDir(char *dirname) {
 	DIR *dir_ptr;
 	struct dirent *dirinfo;
-	struct stat fileinfo;
 	char *cur_dir;
 	char path[4096];
 	startRow = 0;
@@ -160,7 +159,7 @@ void printDir(char *dirname) {
 		for(i = 0; i < fileCount; i++) {
 			snprintf(path, sizeof(path), "%s/%s", cur_dir, filenames[i]);
 			fprintf(fplocal, "%d: %s\n", i, filenames[i]);
-			doStat(path, filenames[i]);
+			doStat(filenames[i]);
 			startRow++;
 		}
 	}
@@ -198,7 +197,7 @@ char* checkDir(char* dirname) {
 	return dirname;
 }
 
-void doStat(char* path, char* filename) {
+void doStat(char* filename) {
 	struct stat info;
 	
 	if (stat(filename, &info) == -1) {
@@ -256,12 +255,11 @@ void printType(struct stat* info) {
 void moveCur() {
 	struct stat info;
 	int ch, findres;
-	int finishRow, curRow, curCol, rowMax, curWinLoc;
+	int curRow, curCol, rowMax, curWinLoc;
 	char des[1024];
 	
 	keypad(flist, TRUE);
 	startRow = 0;
-	finishRow = startRow;
 	curRow = 0;
 	curCol = 0;
 	rowMax = fileCount-1;
