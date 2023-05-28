@@ -108,9 +108,8 @@ int main(int argc, char *argv[]) {
 	showctrl();
 	moveCur();
 	
-	
+	unloadMan();
 	delwin(flist);
-	delwin(mypad);
 	endwin();
 	
 	return 0;

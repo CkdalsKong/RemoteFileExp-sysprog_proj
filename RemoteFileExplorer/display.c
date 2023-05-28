@@ -92,7 +92,8 @@ void printDir(char *dirname) {
 	char *cur_dir;
 	char path[4096];
 	startRow = 0;
-	int i;
+	int i;
+
 	freeFilenames();
 	if (strcmp(dirname, ".."))
 		dirname = checkDir(dirname);
@@ -278,7 +279,7 @@ void moveCur() {
 			case KEY_UP:
 				mvprintw(LINES - 1, nameCol + 1, BLANK);
 				mvprintw(LINES - 1, nameCol + 1, "pressed: key_up");
-				if (curRow >= 0) {
+				if (curRow > 0) {
 					highlight(filenames[curRow], curRow, 0);
 					curRow--;
 				}
@@ -367,7 +368,8 @@ void moveCur() {
 					curRow = findres;
 				}
 				//loadscr();
-				break;			
+				break;
+			
 			case 'h':
 				mvprintw(LINES - 1, nameCol + 1, BLANK);
 				mvprintw(LINES - 1, nameCol + 1, "pressed: key_h");

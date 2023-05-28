@@ -11,7 +11,8 @@ extern char* curdir;
 extern int nameCol;
 #define ROW 30
 WINDOW *alertwin;
-WINDOW *mypad;
+char** manual;
+int manualLines;
 
 void alert(char *msg){
 	
@@ -53,6 +54,7 @@ void alerti(char *msg, char* useri){
 	wgetnstr(alertwin, useri, 100);
 	noecho();
 	cbreak();
+	delwin(alertwin);
 }
 
 void showctrl(){
@@ -93,22 +95,20 @@ void loadMan(){
 	FILE *fp = NULL;
 	int i=0;
 	char buf[80];
-	int maxpage = 1;
+
+	manual = (char**)malloc(100*sizeof(char*));
 	
 	fp = fopen("manual.txt", "r");
 	if(fp == NULL){
-		fprintf(stderr, "manual.txt doesn't exist. Aborting...\n");
-		exit(1);
+		fprintf(stderr, "manual,txt doesn't exist. Aborting...\n");
+		return;
 	}
 	
-	mypad = newpad(maxpage*30,80);
-	
+	manualLines = 0;
 	while(fgets(buf,80,fp)){
-		mvwprintw(mypad,i++,0,buf);
-		if(i>=maxpage*30){
-			fprintf(stderr,"manual.txt is longer than pad\n");
-			break;
-		}
+		manual[manualLines] = (char*) malloc(80*sizeof(char));
+		strcpy(manual[manualLines], buf);
+		manualLines++;
 	}
 	
 	fclose(fp);
@@ -116,30 +116,42 @@ void loadMan(){
 
 void showMan(){
 	
-	int page = 1;
-	int maxpage=2;
+	int page = 0;
+	int maxpage;
 	int stop = 0;
-	
+	WINDOW *mypad;
+	int i;
+
+	maxpage = manualLines/30;
+
+	mypad = newpad(maxpage*30+30, 80);
+
+	for(i=0;i<manualLines;i++){
+		mvwprintw(mypad, i,0, "%s", manual[i]);
+	}
+
 	prefresh(mypad, 0,0,0,0,29,79);
 	while(!stop){
 		touchwin(mypad);
 		switch(getch()){
-			case KEY_LEFT:
-				if(page>1){
-					clear();
+			case 'p':
+				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_p'                                ");
+				if(page>0){
 					page--;
-					prefresh(mypad, page*30-30,0,0,0,29,79);
+					prefresh(mypad, page*30,0,0,0,29,79);
 				}
 				break;
-			case KEY_RIGHT:
+			case 'n':
+				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_n'                                ");
 				if(page<maxpage){
-					clear();
 					page++;
-					prefresh(mypad, page*30-30,0,0,0,29,79);
+					prefresh(mypad, page*30,0,0,0,29,79);
 				}
 				break;
 			case 'q':
 				erase();
+				delwin(mypad);
+				mvprintw(LINES - 1, nameCol + 1, "key pressed: 'key_q'                                ");
 				stop = 1;
 				break;
 			default:
@@ -148,6 +160,15 @@ void showMan(){
 	}
 	
 }
+
+void unloadMan(){
+	int i;
+	for(i=0;i<manualLines;i++){
+		free(manual[manualLines]);
+	}
+	free(manual);
+}
+
 void print_memory_space(char* filepath)
 {
 	struct statvfs s;
