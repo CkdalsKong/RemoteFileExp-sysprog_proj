@@ -33,7 +33,7 @@ Remote File Explorer is a Linux-based file navigation program designed to help u
 
 2. **Navigate to the project directory and Build the project.**
 
-   with 'make' in termianl.
+   with 'make' in terminal.
 
 3. **Run the project.**
 
