@@ -1,0 +1,44 @@
+This page is manual page for explorer
+
+Type 'q' to quit.
+
+Use right arrow to view next page of this manual.
+
+Use left arrow to view previous page of this manual.
+
+=====================================
+
+key controls
+
+Up arrow:
+	Move Cursor up.
+
+Down arrow:
+	Move Cursor down.
+
+Enter:
+	View Items in the selected Folder.
+
+Backspace:
+	Go to the previous directory.
+
+c:
+	Duplicate a file. Creates 'copy_of_filename' of 'filename'.
+	
+d:
+	delete file in current row
+	
+m:
+	create new directory
+
+s:
+	sort in descending order
+	
+S:
+	soct in ascending order
+
+h:
+	opens manual page.
+
+Q:
+	exit the program 
