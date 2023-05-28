@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <termios.h>
 #include "file_management.h"
 #include "sorting.h"
 #include "interface.h"
@@ -21,6 +22,9 @@ if (!(p = malloc(s))) {\
 	perror("malloc() error");\
 	exit(1);\
 }
+
+void restore_terminal_settings();
+struct termios original_termios;
 int startRow = 5;
 int nameCol = 14;
 int timeCol = 42;
@@ -43,8 +47,10 @@ extern WINDOW* flist;
 int main(int argc, char *argv[]) {
 	struct passwd *pw = getpwuid(getuid());
 	homedir = pw->pw_dir;
+	struct termios new_termios;
+	tcgetattr(STDIN_FILENO, &original_termios);
 	char message[64];
-	
+	atexit(restore_terminal_settings);
 	while(1) {
 		printf("local or remote(Q to quit) : ");
 		scanf(" %s", message);
@@ -107,4 +113,9 @@ int main(int argc, char *argv[]) {
 	endwin();
 	
 	return 0;
+}
+
+void restore_terminal_settings() {
+	// 터미널 설정을 원래대로 복구
+	tcsetattr(STDIN_FILENO, TCSANOW, &original_termios);
 }

@@ -17,6 +17,7 @@
 #include "client.h"
 #include "server.h"
 #include "sorting.h"
+#include "interface.h"
 
 extern int nameCol;
 extern int timeCol;
@@ -25,6 +26,8 @@ extern int typeCol;
 extern char *curdir;
 extern int sflag;
 WINDOW* ilist;
+
+#define BLANK "                                  "
 
 void client(char *hostname) {
 	int pip[2];
@@ -178,7 +181,10 @@ void display_results(int end, int sock) {
 				} 
 				if (curRow < curPadLoc){
 					curPadLoc = curRow;
-				} break;
+				}
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_up");
+				break;
 			
 			case KEY_DOWN:
 				if (curRow < rowMax) {
@@ -188,8 +194,12 @@ void display_results(int end, int sock) {
 				if(curRow > curPadLoc + 19) {
 					curPadLoc = curRow - 19;
 				}
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_down");
 				break;
 			case 'd':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_d");
 				sigflag = 0;
 				snprintf(modemsg, BUF_SIZE, "%s | download\n", curdir);
 				write(sock, modemsg, strlen(modemsg));
@@ -199,6 +209,7 @@ void display_results(int end, int sock) {
 				while(!sigflag) {
 					sleep(1)	;
 				}
+				alert("Download Complete!!");
 				printDir2();
 				curRow = 0;
 				curPadLoc = 0;
@@ -220,6 +231,8 @@ void display_results(int end, int sock) {
 					error_handling("read() error!");
 				}
 				printDir2();
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_enter");
 				curRow = 0;
 				curPadLoc = 0;
 				
@@ -236,6 +249,8 @@ void display_results(int end, int sock) {
 				read(end, &dirCount, sizeof(int));
 				read(end, dirlist, dirCount * sizeof(FileInfo));
 				printDir2();
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_backspace");
 				curRow = 0;
 				
 				rowMax = dirCount - 1;
@@ -243,21 +258,28 @@ void display_results(int end, int sock) {
 			case 's':
 				sflag = 1;
 				printDir2();
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_s");
 				break;
 			case 'S':
 				sflag = 2;
 				printDir2();
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_S");
 				break;
 			case 'Q':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_Q");
 				kill(-getpid(), SIGUSR2);
 				break;
 			
 			default:
 				continue;
 		}
+		refresh();
 	}
 
-	refresh();
+	
 	delwin(ilist);
 }
 

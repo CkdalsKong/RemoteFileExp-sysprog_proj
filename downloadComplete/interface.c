@@ -117,7 +117,7 @@ void loadMan(){
 void showMan(){
 	
 	int page = 1;
-	int maxpage=1;
+	int maxpage=2;
 	int stop = 0;
 	
 	prefresh(mypad, 0,0,0,0,29,79);

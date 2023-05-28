@@ -198,7 +198,7 @@ void doStat(char* path, char* filename) {
 	struct stat info;
 	
 	if (stat(filename, &info) == -1) {
-		mvprintw(LINES - 1, nameCol + 1, "stat( %s ) error: %s", path, strerror(errno));
+		//mvprintw(LINES - 1, nameCol + 1, "stat( %s ) error: %s", path, strerror(errno));
 		return;
 	}
 	else {
@@ -250,6 +250,7 @@ void printType(struct stat* info) {
 }
 
 void moveCur() {
+	struct stat info;
 	int ch;
 	int finishRow, curRow, curCol, rowMax, curWinLoc;
 	char des[1024];
@@ -272,6 +273,8 @@ void moveCur() {
 		ch = wgetch(flist);
 		switch (ch) {
 			case KEY_UP:
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_up");
 				if (curRow >= 0) {
 					highlight(filenames[curRow], curRow, 0);
 					curRow--;
@@ -282,6 +285,8 @@ void moveCur() {
 				break;
 			
 			case KEY_DOWN:
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_down");
 				if (curRow < rowMax) {
 					highlight(filenames[curRow], curRow, 0);
 					curRow++;
@@ -297,7 +302,13 @@ void moveCur() {
 			case KEY_ENTER:
 			case '\n'     :
 				curdir = filenames[curRow];
-				printDir(curdir);
+				stat(curdir, &info);
+				if (S_ISDIR(info.st_mode))
+					printDir(curdir);
+				else
+					alert("This file is not a directory");
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_enter");
 				curRow = 0;
 				curWinLoc = 0;
 				
@@ -310,10 +321,14 @@ void moveCur() {
 					break;
 				else
 					printDir("..");
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_backspace");
 				curRow = 0;
 				rowMax = fileCount - 1;
 				break; // home일 경우 메시지 출력 구현하기
 			case 'c':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_c");
 				//strcpy(des, "copy_of_");
 				//strcat(des, filenames[curRow-5]);
 				
@@ -323,45 +338,63 @@ void moveCur() {
 				break;
 			case 'd':
 				file_delete(curRow);
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_d");
 				//loadscr();
 				break;
 			case 'm':
 				create_directory();
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_m");
 				break;
 			case 'f':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_f");
 				find_file();
 				//loadscr();
 				break;			
 			case 'h':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_h");
 				showMan();
 				loadscr();
 				break;
 			case 'r':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_r");
 				rname(filenames[curRow]);
 				loadscr();
 				break;
 			case 's':
 				sflag = 1;
 				printDir(curdir);
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_s");
 				break;
 			case 'S':
 				sflag = 2;
 				printDir(curdir);
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_S");
 				break;
 			case 'Q':
+				mvprintw(LINES - 1, nameCol + 1, BLANK);
+				mvprintw(LINES - 1, nameCol + 1, "pressed: key_Q");
 				kill(getpid(), SIGUSR2);
 				break;
 			
 			default:
 				continue;
 		}
+		refresh();
 	}
 }
 void highlight(char *filename, int row, int flag) {
 	struct stat info;
 	
-	if (stat(filename, &info) == -1)
-		mvprintw(LINES - 1, nameCol + 1, "stat(%s) error: %s", filename, strerror(errno));
+	if (stat(filename, &info) == -1) {
+		//mvprintw(LINES - 1, nameCol + 1, "stat(%s) error: %s", filename, strerror(errno));
+	}
 	
 	if (flag == 1)
 		wattron(flist, A_BOLD | COLOR_PAIR(1));
@@ -414,21 +447,4 @@ void freestack() {
 		free(dirstack[i]);
 	}
 	stackcount = 0;
-}
-
-int isValidFilename(const char *filename) {
-	int i = 0;
-	
-	while (filename[i]) {
-		if (isKoreanCharacter(filename[i])) {
-			return 0;
-		}
-		i++;
-	}
-	
-	return 1;
-}
-
-int isKoreanCharacter(unsigned char c) {
-	return (0xE0 <= c && c <= 0xEF);
 }

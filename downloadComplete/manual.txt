@@ -16,12 +16,6 @@ Up arrow:
 Down arrow:
 	Move Cursor down.
 
-Right arrow:
-	Display next 20 items on current directory.
-
-Left arrow:
-	Display previous 20 items on current directory.
-
 Enter:
 	View Items in the selected Folder.
 
@@ -30,12 +24,21 @@ Backspace:
 
 c:
 	Duplicate a file. Creates 'copy_of_filename' of 'filename'.
+	
+d:
+	delete file in current row
+	
+m:
+	create new directory
+
+s:
+	sort in descending order
+	
+S:
+	soct in ascending order
 
 h:
 	opens manual page.
 
-Ctrl + c:
-	Quit Explorer.
-
-Ctrl + z:
-	Quit Explorer.
+Q:
+	exit the program 
