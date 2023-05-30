@@ -2,9 +2,9 @@ This page is manual page for explorer
 
 Type 'q' to quit.
 
-Type 'n' to view next page of this manual.
+Type left arrow to view next page of this manual.
 
-Type 'p' to view previous page of this manual.
+Type Right arrow to view previous page of this manual.
 
 ======================================================
 

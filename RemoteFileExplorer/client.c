@@ -106,7 +106,7 @@ void signal_handle_child() {
 	char filename[BUF_SIZE];
 	char dir_path[BUF_SIZE];
 	char file_path[BUF_SIZE];
-	long read_size;
+	unsigned long read_size;
 	long file_size;
 	long remain;
 	
