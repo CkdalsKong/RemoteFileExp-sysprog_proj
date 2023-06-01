@@ -54,6 +54,7 @@ void client(char *hostname) {
 	
 	if (pipe(pip) == -1)
 		error_handling("pipe() error!");
+	
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 	signal(SIGTERM, SIG_IGN);

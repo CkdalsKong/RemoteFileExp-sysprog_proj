@@ -371,8 +371,11 @@ void moveCur() {
 			case 'h':
 				mvprintw(LINES - 1, nameCol + 1, BLANK);
 				mvprintw(LINES - 1, nameCol + 1, "pressed: key_h");
+				highlight(filenames[curRow], curRow, 0);
+				refresh();
 				showMan();
-				loadscr();
+				loadscr();				
+				curRow = 0;
 				break;
 			case 'r':
 				mvprintw(LINES - 1, nameCol + 1, BLANK);
